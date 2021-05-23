@@ -56,7 +56,7 @@
     <def name="mpd">
       <box orientation="h" spacing="15" halign="center" class="media-button">
         <button width="40" onclick="mpc --host 127.0.0.1 --port 6002 -q prev">玲</button>
-        <button width="40" onclick="mpc --host 127.0.0.1 --port 6002 -q toggle">懶</button>
+        <button width="40" onclick="mpc --host 127.0.0.1 --port 6002 -q toggle">{{if mpris-status == 'Paused' then '契' else ''}}</button>
         <button width="40" onclick="mpc --host 127.0.0.1 --port 6002 -q next">怜</button>
       </box>
     </def>

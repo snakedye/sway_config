@@ -190,22 +190,22 @@
   },
   "custom/github": {
     "format": "",
-    "on-click": "xdg-open https://github.com",
+    "on-click": "firefox https://github.com",
     "tooltip": false
   },
   "custom/reddit": {
     "format": "樓",
-    "on-click": "xdg-open https://www.reddit.com/",
+    "on-click": "firefox https://www.reddit.com/",
     "tooltip": false
   },
   "custom/youtube": {
     "format": "輸",
-    "on-click": "xdg-open https://www.youtube.com/",
+    "on-click": "firefox https://www.youtube.com/",
     "tooltip": false
   },
   "custom/mail": {
     "format": "",
-    "on-click": "xdg-open https://moncourriel.etsmtl.ca/",
+    "on-click": "firefox https://moncourriel.etsmtl.ca/",
     "tooltip": false
   },
   "custom/crunchyroll": {

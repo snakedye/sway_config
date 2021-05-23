@@ -20,7 +20,7 @@ window {
 
 trough {
   all: unset;
-  background-color: #595959;
+  background-color: #3a3a3a;
   border-radius: 50px;
   min-height: 4px;
 }
@@ -48,8 +48,6 @@ calendar {
 expander {
   all: unset;
   color: transparent;
-  // border-bottom: 2px solid #474747;
-  // padding: 5px;
 }
 
 calendar:selected {
@@ -57,7 +55,7 @@ calendar:selected {
 }
 
 .widget {
-	background-color: #3a3a3a;
+	background-color: #302f2f;
   border-radius: 10px;
   padding: 25px 0px 25px 0px;
   margin: 5px;
@@ -75,8 +73,8 @@ calendar:selected {
   margin: 15px;
   padding: 25px;
   border-radius: 10px;
-  border: 1px solid #474747;
-	background-color: #3a3a3a;
+  border: 1px solid #3a3a3a;
+	background-color: #302f2f;
   box-shadow: 0px 0px 3px 1px  #0F0F0F;
   animation-name: fadeIn;
   animation-duration: 0.1s;
@@ -90,12 +88,12 @@ calendar:selected {
   animation-duration: 0.5s;
 }
 .hub {
+	background-color: #383636;
   animation-name: fadeIn;
   animation-duration: 0.1s;
   padding: 10px;
   border: 1px solid #3a3a3a;
   border-radius: 20px;
-	background-color: #414141;
   margin: 15px;
   box-shadow: 0px 0px 5px 0.2px  #232323;
 }
@@ -106,7 +104,7 @@ calendar:selected {
   font-size: 11px;
   // border: 2px solid #474747;
   border-radius: 5px;
-	background-color: #3a3a3a;
+	background-color: #302f2f;
 }
 .wrap {
   padding: 7px;
@@ -170,10 +168,9 @@ calendar:selected {
 .media-button button {
   all: unset;
   background-color: #3a3a3a;
-  font-size:20px;
   color: #dcbb8c;
   border-radius: 10px;
-  padding:2px;
+  padding:7px 0px 7px 0px;
 }
 .media-button button:hover {
 	background-color: #474747;
