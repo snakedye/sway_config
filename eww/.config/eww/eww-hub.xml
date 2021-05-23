@@ -1,0 +1,154 @@
+<eww>
+  <definitions>
+    <def name="hub">
+      <box orientation="v" space-evenly="false" spacing="5" class="hub">
+        <locale/>
+        <box space-evenly="false" class="widget" orientation="v">
+          <media/>
+        </box>
+        <status/>
+        <control/>
+        <lock/>
+        <notification-center/>
+      </box>
+    </def>
+
+    <def name="seperator">
+       <scale halign="fill" class="seperator" active="false" value="1" max="1"/>
+    </def>
+
+    <def name="locale">
+      <box style="padding: 25px;font-family: Ubuntu Mono;"
+        orientation="v" space-evenly="false" valign="center" spacing="10" halign="center">
+        <label text="{{time}}" style="font-size: 5.5em;"></label>
+        <label text="{{date}}" style="font-size: 1.5em;"></label>
+      </box>
+    </def>
+
+    <def name="media">
+      <box halign="center" spacing="20" orientation="h" space-evenly="true">
+        <!-- <image style="border: 2px solid #414141" halign="center" width="110" path="/home/bryan/.cache/ncmpcpp/{{album}}.png"/> -->
+        <box spacing="10" orientation="v" halign="center" space-evenly="true" class="media-cluster">
+          <label style="color:#6f6f6f ;font-size: 1em" limit-width="45" text="{{mpris}}{{if mpris =~ '...................................+' then '...' else ''}}"></label>
+          <label style="font-size: 1em" text="{{mpris_position}}"></label>
+          <mpd/>
+        </box>
+      </box>
+    </def>
+
+    <def name="status">
+      <box orientation="v" spacing="15" valign="fill" class="widget">
+        <box class="status" orientation="h" space-evenly="false" spacing="25" halign="center">
+          <label text=""></label>
+          <scale width="300" class="ram" active="false" max="16" value="{{EWW_RAM}}"/>
+        </box>
+        <box class="status" orientation="h" space-evenly="false" spacing="25" halign="center">
+          <label text=""></label>
+          <scale width="300" class="gpu" active="false" max="101" value="{{EWW_TEMPS.TDIE}}"/>
+        </box>
+        <box class="status" orientation="h" space-evenly="false" spacing="25" halign="center">
+          <label text=""></label>
+          <scale width="300" class="cpu" active="false" max="60" value="{{EWW_CPU_USAGE.avg}}"/>
+        </box>
+      </box>
+    </def>
+
+    <def name="mpd">
+      <box orientation="h" spacing="15" halign="center" class="media-button">
+        <button width="40" onclick="mpc --host 127.0.0.1 --port 6002 -q prev">玲</button>
+        <button width="40" onclick="mpc --host 127.0.0.1 --port 6002 -q toggle">懶</button>
+        <button width="40" onclick="mpc --host 127.0.0.1 --port 6002 -q next">怜</button>
+      </box>
+    </def>
+
+    <def name="control">
+      <box class="widget" spacing="20" orientation="v" space-evenly="false">
+        <volume_slider/>
+        <view_padding/>
+        <main_factor/>
+        <layout/>
+      </box>
+    </def>
+
+    <!-- Control widgets -->
+    <def name="volume_slider">
+      <box class="indicator" orientation="h" space-evenly="false" spacing="25" halign="center">
+        <volume_icon/>
+        <scale width="250" valign="center" min="0" max="100" value="{{volume_5}}" onchange="~/.config/eww/scripts/volume {}"/>
+      </box>
+    </def>
+
+    <def name="view_padding">
+      <box class="indicator" orientation="h" space-evenly="false" spacing="25" halign="center">
+        <label text=""></label>
+        <scale width="250" valign="center" min="0" max="60" value="5" onchange="riverctl set-layout-value kile int outer_padding $(fish -c 'math -s0 {}')"/>
+      </box>
+    </def>
+
+    <def name="main_factor">
+      <box class="indicator" orientation="h" space-evenly="false" spacing="25" halign="center">
+        <label text=""></label>
+        <scale width="250" valign="center" min="10" max="90" value="55" onchange="riverctl set-layout-value kile fixed main_factor $(fish -c 'math {}/100')"/>
+      </box>
+    </def>
+
+    <def name="layout">
+      <box orientation="h" halign="center" spacing="10">
+        <button class="layout" onclick="riverctl set-layout-value kile string set_tag 'focused|{v:hh}||0.6'">
+          <image height="45" path="/home/bryan/Pictures/layouts/vertical.svg"></image>
+        </button>
+        <button class="layout" onclick="riverctl set-layout-value kile string set_tag 'focused|{h:vv}'">
+          <image height="45" path="/home/bryan/Pictures/layouts/horizontal.svg"></image>
+        </button>
+        <button class="layout" onclick="riverctl set-layout-value kile string set_tag 'focused|{d:ht{v:hh}}||0.7|1'">
+          <image height="45" path="/home/bryan/Pictures/layouts/dwindle.svg"></image>
+        </button>
+        <button class="layout" onclick="riverctl set-layout-value kile string set_tag 'focused|t'">
+          <image height="45" path="/home/bryan/Pictures/layouts/tab.svg"></image>
+        </button>
+        <button
+          class="layout"
+          style="font-size: 32px;"
+          onclick="riverctl set-layout-value kile string clear_tag focused">
+          
+        </button>
+      </box>
+    </def>
+
+    <!-- User info -->
+    <def name="user_info">
+      <box style="padding: 15px;font-size:13px;" orientation="v" spacing="5" class="info">
+        <box orientation="h" space-evenly="false" spacing="25" halign="start">
+          <label class="icon" text=""></label>
+          <label text="{{uptime}}"></label>
+        </box>
+        <box orientation="h" space-evenly="false" spacing="25" halign="start">
+          <label class="icon" text=""></label>
+          <label text="{{disk_usage}} /run/media/bryan"></label>
+        </box>
+        <box orientation="h" space-evenly="false" spacing="15" halign="start">
+          <label class="icon" text=""></label>
+          <label text=" {{weather}}"></label>
+        </box>
+      </box>
+    </def>
+
+  </definitions>
+  <variables>
+    <script-var name="hostname">echo $(hostname)@"$USER"</script-var>
+    <script-var interval="10s" name="time">date "+%H:%M"</script-var>
+    <script-var interval="60m" name="date">date "+%A, %b %d"</script-var>
+    <script-var name="album">playerctl metadata --format '{{album}}' -F</script-var>
+
+    <script-var interval="30m" name="weather">~/.config/waybar/scripts/weather.sh Terrebonne -s</script-var>
+    <script-var interval="30m" name="weather_icon">curl -s 'https://wttr.in/?format=1' | sed 's/[+0-9a-cA-Z°-]//g' | grep -o . | head -1</script-var>
+
+    <script-var interval="60s" name="uptime">~/.config/eww/scripts/time</script-var>
+    <script-var name="disk_usage">df /run/media/bryan | awk '{print $5}' | tail -1</script-var>
+
+    <script-var name="mpris_position">playerctl metadata --format '{{duration(position)}} / {{duration(mpris:length)}}' -F</script-var>
+    <script-var interval="10s" name="ram">free -m | grep Mem | awk '{print ($3/$2)*100}'</script-var>
+    <script-var interval="10s" name="gpu">sensors | grep edge | grep -o '[0-9]*' | head -1</script-var>
+    <script-var interval="10s" name="cpu">sensors | grep Tdie | grep -o '[0-9]*' | head -1</script-var>
+  </variables>
+</eww>

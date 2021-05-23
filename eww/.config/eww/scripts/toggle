@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+STATUS=$(~/.local/bin/eww state | grep hide | awk '{print $2}' | head -1)
+
+if $STATUS; then
+  ~/.local/bin/eww update hide="false"
+else
+  ~/.local/bin/eww update hide="true"
+fi

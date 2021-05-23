@@ -1,0 +1,20 @@
+#!/bin/fish
+
+function display_uptime
+  set -l uptime (uptime -p | grep -o '[0-9]* [a-z]*')
+  set -l days (echo $uptime | grep day | awk '{print $1}')
+  set -l hours (echo $uptime | grep hour | awk '{print $1}')
+  set -l minutes (uptime -p | grep -o '[0-9]* [a-z]*' | grep minute| awk '{print $1}')
+  set -l title_block '  '(set_color blue -o) uptime'    '
+  if test -z days
+    set days '00'
+  else if test -z days
+    set hours '00'
+  else if test -z days
+    set minutes '00'
+  end
+  set text_block $days'd' $hours'h' $minutes'm'
+  echo -ne $text_block \n
+end
+
+display_uptime

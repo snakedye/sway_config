@@ -1,0 +1,217 @@
+@import "material.css";
+
+* {
+	border: none;
+	font-size: 11px;
+	margin: 2px;
+	font-family: Cascadia Mono, Product Sans ,Arial, Helvetica, sans-serif;
+}
+window#waybar {
+	padding: 4px;
+  animation-name: fadeIn;
+  animation-duration: 1s;
+	color: @greenish;
+}
+window#waybar.empty {
+}
+#workspaces, #tags {
+	background-color: transparent;
+	padding: 0px;
+  margin-right: 10px;
+	border-radius: 10px;
+}
+#workspaces button, #tags button {
+	border-radius: 8px;
+  font-weight:bold;
+  margin: 0px;
+	padding: 2px 10px 2px 10px;
+	color: @dark;
+}
+#window {
+	color: @greenish;
+	border-radius: 10px;
+	padding: 0px 8px 0px 8px;
+}
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+#workspaces button:hover, #tags button:hover {
+	background-color: @darker;
+	box-shadow: inherit;
+	color: @yellow;
+  opacity:0.5;
+}
+#workspaces button.focused, #tags button.focused {
+	/* background-color: ; */
+  font-weight:bold;
+	color: @yellow;
+}
+#tags button.focused {
+  font-weight: 600;
+}
+#workspaces button.urgent {
+	color:  @red;
+  font-weight:bold;
+}
+#tags button {
+  font-weight: 600;
+}
+/* TASKBAR */
+#taskbar {
+  /* margin: 0px; */
+}
+#taskbar button {
+  margin: 0px 6px 0px 6px;
+	border-radius: 7px;
+	padding: 1px 2px 1px 1px;
+}
+#taskbar button.active {
+	background-color: @dark;
+}
+#taskbar button.minimized {
+	/* color: @yellow; */
+}
+#taskbar button:hover {
+	box-shadow: inherit;
+}
+/* BROWSER BOOKMARKS */
+#custom-name, #custom-github,#custom-reddit,#custom-crunchyroll,#custom-youtube,#custom-mail, #custom-library {
+	background-color: transparent;
+	font-size: 18px;
+  margin-left: 0;
+  margin-right: 0;
+	padding: 0px 15px 0px 15px ;
+}
+#custom-github {
+  padding-left: 10px;
+	border-radius: 10px 0px 0px 10px;
+	color: @orange;
+}
+#custom-reddit {
+	color: @yellow;
+}
+#custom-crunchyroll {
+	color: @green;
+	font-size: 15px;
+}
+#custom-youtube {
+	color: @red;
+}
+#custom-mail {
+	color: @bright-blue;
+	font-size: 16px;
+	border-radius: 0px 10px 10px 0px;
+}
+/* WIDGETS */
+#cpu, #custom-pacman, #memory, #backlight, #disk, #network, #pulseaudio, #custom-weather, #temperature {
+	background-color: transparent;
+	padding: 0px 14px 0px 14px;
+	margin: 2px 0px 2px 0px;
+}
+#disk {
+	color: @purple;
+}
+#memory {
+	color: @orange;
+}
+#cpu {
+	color: @red;
+}
+#network {
+  font-weight: 600;
+	color: @green;
+}
+#custom-weather {
+	color: @yellow;
+}
+#custom-weather {
+	padding: 0px 8px 0px 8px;
+}
+#custom-media, #mpd, #custom-mpd {
+	border-radius: 10px;
+	/* font-size: 12px; */
+  margin-left: 10px;
+  background-color: transparent;
+}
+#custom-media.Playing {
+	color: @yellow;
+	border-radius: 0px;
+	font-weight: 500;
+}
+#custom-mpd {
+	color: @purple;
+	border-radius: 0px;
+	font-weight: 500;
+}
+#custom-pacman {
+	color: #978074;
+	border-radius: 0px 10px 10px 0px;
+	font-weight: 600;
+}
+#pulseaudio {
+	color: @yellow;
+	border-radius: 10px 0px 0px 10px;
+}
+#pulseaudio.muted {
+  opacity:0.5;
+}
+#temperature{
+	color: @blue;
+}
+#temperature.critical {
+	color: @yellow;
+}
+#battery {
+	color: @cyan;
+	padding: 0px 8px 0px 8px;
+}
+#battery.charging {
+	color: @greenish;
+}
+@keyframes blink {
+	to {
+		background-color: #eceff4;
+		color: @darker;
+	}
+}
+#battery.critical:not(.charging) {
+	background-color: @red;
+	color: @greenish;
+	animation-name: blink;
+	animation-duration: 0.5s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+label:focus {
+	background-color: @darker;
+}
+#idle_inhibitor {
+	font-size: 18px;
+	color: @greenish;
+}
+#idle_inhibitor.activated {
+	color: @blue;
+}
+#clock, #idle_inhibitor, #custom-recorder, #tray {
+	background-color: transparent;
+	padding: 0px 10px 0px 5px;
+	margin: 5px 0px 5px 0px;
+}
+#clock {
+	border-radius: 0px 10px 10px 0px;
+}
+#custom-recorder.recording {
+	color: @red;
+}
+#tray {
+	border-radius: 10px 0px 0px 10px;
+	color: @cyan;
+}
+#custom-power {
+  color: @greenish;
+	font-size: 17px;
+	border-radius: 0px 10px 10px 0px;
+}

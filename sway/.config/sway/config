@@ -1,0 +1,261 @@
+# Default config for sway
+#
+# Copy this to ~/.config/sway/config and edit it to your liking.
+#
+# Read `man 5 sway` for a complete reference.
+
+# Keyboard configuration
+input * repeat_delay 300
+input * repeat_rate 50
+input * xkb_layout us(intl)
+
+### Variables
+#
+# Logo key. Use Mod1 for Alt.
+set $mod Mod4
+# Home row direction keys, like vim
+set $left h
+set $down j
+set $up k
+set $right l
+# Your preferred terminal emulator
+set $term foot
+# Your preferred application launcher
+# Note: pass the final command to swaymsg so that the resulting window can be opened
+# on the original workspace that the command was run on.
+#
+set $menu wofi -c ~/.config/wofi/config
+
+# Select monitor
+focus left
+
+### Output configuration
+#
+# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
+output "*" bg "#3a3a3a" solid_color
+# swaybg_command -
+#
+# Example configuration:
+#
+  output HDMI-A-1 adaptive_sync off
+#
+# You can get the names of your outputs by running: swaymsg -t get_outputs
+
+### Idle configuration
+#
+# Example configuration:
+#
+exec swayidle -w\
+    timeout 1070 'swaylock -f'\
+    timeout 770 'swaymsg "output * dpms off"' \
+    resume 'swaymsg "output * dpms on"' \
+    after-resume 'swaylock'
+# This will lock your screen after 300 seconds of inactivity, then turn off
+# your displays after another 300 seconds, and turn your screens back on when
+# resumed. It will also lock your screen before your computer goes to sleep.
+#
+# Inhibit idle
+# inhibit_idle fullscreen
+
+# Wofi emoji
+bindsym $mod+d exec fish -c wofi-emoji
+
+bindsym $mod+c exec "~/.local/bin/eww open hub"
+
+# Screenlocking
+bindsym $mod+f1 exec ~/.config/sway/lockman.sh
+
+# Screenshot with grim and swappy
+bindsym print exec fish -c "slurpshot -g"
+bindsym Shift+print exec fish -c "slurpshot -f"
+
+# Screen recording with wf-recorder
+bindsym $mod+Shift+r exec fish -c "slurpshot -wf"
+
+### Input configuration
+#
+# Example configuration:
+#
+   input "1267:12377:ELAN1300:00_04F3:3059_Touchpad" {
+       dwt enabled
+       tap enabled
+       natural_scroll enabled
+       middle_emulation enabled
+   }
+   # Wacom tablet configuration
+   input "1386:884:Wacom_Intuos_S_Pad" map_to_output HDMI-A-1
+   input "1386:884:Wacom_Intuos_S_Pen" map_to_output HDMI-A-1
+#
+# You can get the names of your inputs by running: swaymsg -t get_inputs
+# Read `man 5 sway-input` for more information about this section.
+
+### Key bindings
+#
+# Basics:
+#
+    # Launch a terminal
+    bindsym $mod+return exec $term
+
+    # Kill focused window
+    bindsym $mod+X kill
+
+    # Start your launcher
+    bindsym $mod+Space exec $menu
+
+	# Launch Dolphin
+	# bindsym $mod+d exec dolphin
+	
+    # Drag floating windows by holding down $mod and left mouse button.
+    floating_modifier $mod normal
+
+    # Reload the configuration file
+    bindsym $mod+Shift+c reload
+
+    # Power menu
+    bindsym $mod+Shift+e exec "~/.local/bin/eww open-many lock0 lock1"
+#
+# Moving around:
+#
+    # Move your focus around
+    bindsym $mod+$left focus left
+    bindsym $mod+$down focus down
+    bindsym $mod+$up focus up
+    bindsym $mod+$right focus right
+    # Or use $mod+[up|down|left|right]
+    bindsym $mod+Left focus left
+    bindsym $mod+Down focus down
+    bindsym $mod+Up focus up
+    bindsym $mod+Right focus right
+
+    # Move the focused window with the same, but add Shift
+    bindsym $mod+Shift+$left move left
+    bindsym $mod+Shift+$down move down
+    bindsym $mod+Shift+$up move up
+    bindsym $mod+Shift+$right move right
+    # Ditto, with arrow keys
+    bindsym $mod+Shift+Left move left
+    bindsym $mod+Shift+Down move down
+    bindsym $mod+Shift+Up move up
+    bindsym $mod+Shift+Right move right
+#
+# Workspaces:
+#
+    workspace 1 output  HDMI-A-1
+    workspace 2 output  HDMI-A-1
+    workspace 3 output  HDMI-A-1
+    workspace 4 output  HDMI-A-1
+    workspace 5 output  HDMI-A-1
+
+    workspace 6 output  DP-2
+    workspace 7 output  DP-2
+    workspace 8 output  DP-2
+    workspace 9 output  DP-2
+
+    # Switch to workspace
+    bindsym $mod+1 workspace 1
+    bindsym $mod+2 workspace 2
+    bindsym $mod+3 workspace 3
+    bindsym $mod+4 workspace 4
+    bindsym $mod+5 workspace 5
+    bindsym $mod+6 workspace 6
+    bindsym $mod+7 workspace 7
+    bindsym $mod+8 workspace 8
+    bindsym $mod+9 workspace 9
+    bindsym $mod+0 workspace 10
+    # Move focused container to workspace
+    bindsym $mod+Shift+1 move container to workspace 1
+    bindsym $mod+Shift+2 move container to workspace 2
+    bindsym $mod+Shift+3 move container to workspace 3
+    bindsym $mod+Shift+4 move container to workspace 4
+    bindsym $mod+Shift+5 move container to workspace 5
+    bindsym $mod+Shift+6 move container to workspace 6
+    bindsym $mod+Shift+7 move container to workspace 7
+    bindsym $mod+Shift+8 move container to workspace 8
+    bindsym $mod+Shift+9 move container to workspace 9
+    bindsym $mod+Shift+0 move container to workspace 10
+    # Note: workspaces can have any name you want, not just numbers.
+    # We just use 1-10 as the default.
+    #
+    # Switch to next/previous workspace on output
+    bindsym ctrl+Alt+$right workspace next_on_output
+    bindsym ctrl+Alt+$left workspace prev_on_output
+#
+# Layout stuff:
+#
+    # You can "split" the current object of your focus with
+    # $mod+b or $mod+v, for horizontal and vertical splits
+    # respectively.
+    bindsym $mod+b splith
+    bindsym $mod+v splitv
+
+    # Switch the current container between different layout styles
+    bindsym $mod+s layout stacking
+    bindsym $mod+Tab layout tabbed
+    bindsym $mod+e layout toggle split
+
+    # Make the current focus fullscreen
+    bindsym $mod+f fullscreen
+
+    # Toggle the current focus between tiling and floating mode
+    bindsym alt+Space floating toggle
+
+    # Swap focus between the tiling area and the floating area
+    bindsym shift+space focus mode_toggle
+
+    # Move focus to the parent container
+    bindsym $mod+a focus parent
+
+    # Back and Forth
+	  # bindsym $mod+d workspace back_and_forth
+
+#
+# Scratchpad:
+#
+    # Sway has a "scratchpad", which is a bag of holding for windows.
+    # You can send windows there and get them back later.
+
+    # Move the currently focused window to the scratchpad
+    bindsym $mod+Shift+minus move scratchpad
+	
+    # Show the next scratchpad window or hide the focused scratchpad window.
+    # If there are multiple scratchpad windows, this command cycles through them.
+    bindsym alt+tab scratchpad show
+    bindsym $mod+minus scratchpad show
+#
+# Resizing containers:
+#
+    bindsym $mod+alt+$left resize shrink width 20px
+    bindsym $mod+alt+$up resize grow height 20px
+    bindsym $mod+alt+$down resize shrink height 20px
+    bindsym $mod+alt+$right resize grow width 20px
+
+    # Ditto, with arrow keys
+    bindsym $mod+alt+Left resize shrink width 20px
+    bindsym $mod+alt+Up resize grow height 20px
+    bindsym $mod+alt+Down resize shrink height 20px
+    bindsym $mod+alt+Right resize grow width 20px
+
+# Status Bar:
+#
+# Read `man 5 sway-bar` for more information about this section.
+bar {
+   swaybar_command waybar;
+}
+
+include /etc/sway/config.d/*
+include ~/.config/sway/decoration
+include ~/.config/sway/autostart
+include ~/.config/sway/wmrules
+# include ~/.config/sway/combos
+
+# Special keys
+bindsym XF86AudioRaiseVolume exec pamixer -ui 2
+bindsym XF86AudioLowerVolume exec pamixer -ud 2
+bindsym XF86AudioMute exec pamixer --toggle-mute
+bindsym XF86MonBrightnessUp exec brightnessctl -c backlight set +1%
+bindsym XF86MonBrightnessDown exec brightnessctl -c backlight set 1%-
+bindsym XF86KbdBrightnessUp exec brightnessctl -c backlight set +1%
+bindsym XF86KbdBrightnessDown exec brightnessctl -c backlight set 1%-
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous

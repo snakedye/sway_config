@@ -1,0 +1,23 @@
+#!/bin/bash
+
+MUSIC_DIR=$HOME/Music
+
+HOST=127.0.0.1
+
+PORT=6002
+
+ALBUM="$(mpc --host $HOST --port $PORT current --format "%album%")"
+
+TITLE="$(mpc --host $HOST --port $PORT current --format "%title%")"
+
+FILENAME="$(mpc --host $HOST --port $PORT current --format "%file%")"
+
+ARTIST="$(mpc --host $HOST --port $PORT current --format "%artist%")"
+
+COVER="$HOME/.cache/ncmpcpp/$ALBUM.png"
+
+if [ ! -e "$COVER" ]; then
+  ffmpegthumbnailer -i "$MUSIC_DIR/$FILENAME" -o "$COVER" -s 300 2> /dev/null
+fi
+
+notify-send "$ARTIST" "$TITLE" -i "$COVER"

@@ -1,0 +1,96 @@
+#!/usr/bin/env sh
+
+LITERAL='<box orientation="v" spacing="20" space-evenly="false" style="padding: 0px 10px 10px 10px">'
+LINE=0
+
+show() {
+  OPENED=$(~/.local/bin/eww windows | grep notification)
+  killall -q sleep 2> /dev/null
+  ~/.local/bin/eww update notifs="$LITERAL"
+  ~/.local/bin/eww update hide="true"
+  if [[ ! $OPENED =~ \* ]]; then
+    ~/.local/bin/eww open notification
+  fi
+  hide &
+}
+
+hide() {
+  sleep 4.5 && ~/.local/bin/eww close notification && reset
+}
+
+reset() {
+  LITERAL='<box orientation="v" spacing="20" space-evenly="false" style="padding: 0px 10px 10px 10px">'
+  echo clear > /tmp/notification
+  ~/.local/bin/eww update hide="false"
+}
+
+build() {
+  if [[ $BODY =~ .{50,} ]]; then
+    BODY="${BODY:0:50}..."
+  fi
+  if [[ $SUMMARY =~ .{50,} ]]; then
+    SUMMARY="${SUMMARY:0:50}..."
+  fi
+  if [[ ! -e $APP_ICON && -e /usr/share/icons/Papirus/64x64/mimetypes/$APP_ICON.svg  ]]; then
+    APP_ICON=/usr/share/icons/Papirus/64x64/mimetypes/$APP_ICON.svg
+    SHOW_ICON=true
+  elif [[ -e $APP_ICON ]]; then
+    SHOW_ICON=true
+  else
+    SHOW_ICON=false
+  fi
+  LITERAL=${LITERAL/%'</box>'}
+  LITERAL+="  <box orientation=\"v\" space-evenly=\"false\" class=\"notification\">
+    <button>
+      <box halign=\"start\" width=\"200\" spacing=\"15\" orientation=\"h\" space-evenly=\"false\" class=\"notif\">
+        <image 
+          style=\"padding: 1px; border: none\"
+          halign=\"center\" width=\"80\" visible=\"$SHOW_ICON\" path=\"$APP_ICON\"/>
+        <box width=\"200\" valign=\"center\" space-evenly=\"false\" spacing=\"5\" orientation=\"v\" halign=\"fill\" class=\"content\">
+          <box width=\"230\" spacing=\"5\" orientation=\"v\" valign=\"center\" halign=\"start\" space-evenly=\"false\">
+            <label halign=\"start\" style=\"color: #dcbb8c; font-size: 14px; font-weight: bold\" limit-width=\"20\" markup=\"$SUMMARY\"></label>
+            <label halign=\"start\"  style=\"color: #6f6f6f\"
+            text=\"$APP_NAME\" limit-width=\"15\"></label>
+          </box>
+          <label halign=\"start\" valign=\"center\" style=\"color: #dcbb8c; margin: 0px; padding: 0px\" markup=\"$BODY\"></label>
+        </box>
+      </box>
+    </button>
+  </box>
+</box>"
+}
+
+tiramisu | while read -r value
+do
+  if [[ $value =~ \#.* ]]; then
+    :
+  else
+    case $LINE in
+      0 )
+        if [[ $(cat /tmp/notification) == "clear" ]]; then
+          LITERAL='<box orientation="v" spacing="20" space-evenly="false" style="padding: 0px 10px 10px 10px">'
+          echo > /tmp/notification
+        fi
+        APP_NAME="$value"
+        ;;
+      1 )
+        APP_ICON="$value"
+        ;;
+      3 )
+        SUMMARY="$value"
+        ;;
+      4 )
+        BODY="$value"
+        ;;
+      5 )
+        ACTION="$value"
+        ;;
+      8 )
+        LINE=-1
+        build
+        show
+        ;;
+    esac
+  fi
+  ((LINE+=1))
+done

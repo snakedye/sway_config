@@ -1,0 +1,10 @@
+{
+  "thumb_width": "240",
+  "columns": "6",
+  "color_icon_w": "100",
+  "color_icon_h": "50",
+  "clip_prev_size": "30",
+  "palette_quality": "10",
+  "tracking_interval_seconds": "5",
+  "screen_measurement_delay": "10"
+}

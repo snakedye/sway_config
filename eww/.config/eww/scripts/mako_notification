@@ -1,0 +1,61 @@
+#!/usr/bin/env sh
+
+makoctl reload
+
+reset() {
+  echo > /tmp/notification
+}
+
+format() {
+  if [[ "$1" =~ .{20,} ]]; then
+    echo "${1:0:20}..."
+  fi
+}
+
+echo '<box orientation="v" spacing="20" space-evenly="true"
+style="padding: 0px 10px 10px 10px">' >> /tmp/notification
+makoctl list | jq -c '.data | .[] | .[]' | while read -r line
+do
+  APP_NAME=$(echo $line | jq '.["app-name"].data')
+  APP_ICON=$(echo $line | jq -r '.["app-icon"].data')
+  SUMMARY=$(echo $line | jq '.summary.data')
+  BODY=$(echo $line | jq '.body.data')
+  if [[ $BODY =~ .{45,} ]]; then
+    BODY="${BODY:0:45}..."\"
+  fi
+  if [[ $SUMMARY =~ .{42,} ]]; then
+    SUMMARY="${BODY:0:40}..."\"
+  fi
+  if [[ $APP_ICON == "" ]]; then
+    SHOW_ICON=false
+  else
+    SHOW_ICON=true
+  fi
+  APP_ICON=\"/usr/share/icons/Papirus/64x64/mimetypes/$APP_ICON.svg\"
+  echo "<box orientation=\"v\" space-evenly=\"true\" class=\"notification\">
+  <button>
+    <box halign=\"start\" width=\"200\" spacing=\"10\" orientation=\"h\" space-evenly=\"false\" class=\"notif\">
+      <image 
+        style=\"padding: 1px; border: none\"
+        halign=\"center\" height=\"70\" width=\"70\" visible=\"$SHOW_ICON\" path=$APP_ICON/>
+      <box width=\"200\"
+        valign=\"center\"
+        space-evenly=\"false\"
+        spacing=\"5\" orientation=\"v\" halign=\"fill\" class=\"content\">
+        <box width=\"230\" spacing=\"5\" orientation=\"v\" valign=\"center\" halign=\"start\" space-evenly=\"false\">
+          <label halign=\"start\" style=\"color: #dcbb8c; font-size: 14px; font-weight: bold\" limit-width=\"20\" markup=$SUMMARY></label>
+          <label halign=\"start\"  style=\"color: #6f6f6f\"
+          text=$APP_NAME limit-width=\"15\"></label>
+        </box>
+        <label halign=\"start\" wrap=\"true\" valign=\"center\"
+        style=\"color: #dcbb8c; margin: 0px; padding: 0px\"
+        markup=$BODY></label>
+      </box>
+    </box>
+  </button>
+</box>" >> /tmp/notification
+done
+echo '</box>' >> /tmp/notification
+
+~/.local/bin/eww update notifs="$(cat /tmp/notification)"
+reset

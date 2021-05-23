@@ -1,0 +1,22 @@
+font=CascadiaMono 09
+
+layer=overlay
+anchor=top-right
+background-color=#3a3a3a
+text-color=#dcbb8c
+width=360
+height=150
+padding=15
+margin=10
+progress-color= source #60606080
+icon-path=/usr/share/icons/Papirus-Dark
+max-icon-size=100
+
+border-size=2
+border-radius=0
+border-color=#464646
+
+default-timeout=5000
+
+[urgency=high]
+ignore-timeout=1

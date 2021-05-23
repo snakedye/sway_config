@@ -1,0 +1,110 @@
+<eww>
+  <definitions>
+    <def name="bar0">
+      <box class="bar" halign="fill">
+        <left/>
+        <workspaces0/>
+        <tray/>
+      </box>
+    </def>
+    <def name="bar1">
+      <box class="bar" halign="fill">
+        <left/>
+        <workspaces1/>
+        <tray/>
+      </box>
+    </def>
+    <def name="left">
+      <box class="left" orientation="h" space-evenly="false" spacing="15" halign="start">
+        <link/><vsplit/>
+        <button orientation="h" class="{{mpris-status}}" halign="fill" onclick="playerctl play-pause">
+          <label text="{{if mpris-status == 'Paused' then '契' else ''}}  {{mpris}}" halign="center" limit-width="60"></label>
+        </button>
+      </box>
+    </def>
+    <def name="workspaces1">
+      <box class="tags" spacing="20" halign="center">
+        <button class="{{if tag1 =~ '^1' || tag1 =~ '^32' then 'active' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 1">一</button>
+        <button class="{{if tag1 =~ '^2' || tag1 =~ '^32' then 'active' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 2">二</button>
+        <button class="{{if tag1 =~ '^3' || tag1 =~ '^32' then 'active' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 3">三</button>
+        <button class="{{if tag1 =~ '^4' || tag1 =~ '^32' then 'active' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 4">四</button>
+        <button class="{{if tag1 =~ '^5' || tag1 =~ '^32' then 'active' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 5">五</button>
+        <button class="{{if tag1 =~ '^6' || tag1 =~ '^32' then 'active' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 6">六</button>
+        <button class="{{if tag1 =~ '^7' || tag1 =~ '^32' then 'active' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 7">七</button>
+        <button class="{{if tag1 =~ '^8' || tag1 =~ '^32' then 'active' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 8">八</button>
+        <button class="{{if tag1 =~ '^9' || tag1 =~ '^32' then 'active' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 9">九</button>
+      </box>
+    </def>
+    <def name="workspaces0">
+      <box class="tags" spacing="20" halign="center">
+        <button class="{{if tag0 =~ '^1' || tag0 =~ '^32' then 'active'  else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 1">一</button>
+        <button class="{{if tag0 =~ '^2' || tag0 =~ '^32' then 'active'  else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 2">二</button>
+        <button class="{{if tag0 =~ '^3' || tag0 =~ '^32' then 'active'  else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 3">三</button>
+        <button class="{{if tag0 =~ '^4' || tag0 =~ '^32' then 'active'  else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 4">四</button>
+        <button class="{{if tag0 =~ '^5' || tag0 =~ '^32' then 'active'  else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 5">五</button>
+        <button class="{{if tag0 =~ '^6' || tag0 =~ '^32' then 'active'  else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 6">六</button>
+        <button class="{{if tag0 =~ '^7' || tag0 =~ '^32' then 'active'  else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 7">七</button>
+        <button class="{{if tag0 =~ '^8' || tag0 =~ '^32' then 'active'  else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 8">八</button>
+        <button class="{{if tag0 =~ '^9' || tag0 =~ '^32' then 'active'  else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 9">九</button>
+      </box>
+    </def>
+    <def name="volume">
+      <box style="font-size: 14px" class="volume" orientation="h" space-evenly="false" spacing="15" halign="end">
+        <volume_icon/>
+        <progress width="200" valign="center" value="{{volume}}"/>
+      </box>
+    </def>
+    <def name="tray">
+      <box class="tray" orientation="h" space-evenly="false" spacing="10" halign="end">
+        <recorder/>
+        <volume/>
+        <info/><vsplit/>
+        <button class="time" 
+          style="font-size: 11px; font-weight: 600;"
+          onclick="~/.local/bin/eww close hub || ~/.local/bin/eww open hub" halign="end">{{time}}</button>
+      </box>
+    </def>
+    <def name="info">
+      <box class="tray-info" orientation="h" space-evenly="false" spacing="15" halign="fill">
+        <button class="{{if pacman > 0 then 'pacman' else 'none'}}" halign="fill" 
+          style="color: #978074;"
+          onclick="foot paru &">
+          {{pacman}} 
+        </button>
+        <button style="color: #9da98d;" halign="fill" onclick="nm-connection-editor &">
+          {{if network!='' then '直 connected' else '  disconnected'}}
+        </button>
+      </box>
+    </def>
+    <def name="recorder">
+      <button class="tray-info" orientation="h" space-evenly="false"
+        onclick="kill -INT $(pgrep wf-recorder)"
+        style="color: #cb7073;" spacing="15" halign="end" visible="{{recorder}}">
+        recording
+      </button>
+    </def>
+    <def name="vsplit">
+      <box>
+      <label text="|" style="color: #474747"></label>
+      </box>
+    </def>
+    <def name="link">
+      <box class="link" orientation="h" space-evenly="true" spacing="25" halign="fill">
+        <button style="color: #dcbb8c" onclick="xdg-open https://github.com/"></button>
+        <button style="color: #d59877" onclick="xdg-open https://www.reddit.com/"></button>
+        <button style="color: #6F8798" onclick="firefox https://discord.com/channels/@me"></button>
+        <button style="color: #cb7073" onclick="xdg-open https://www.youtube.com/">輸</button>
+      </box>
+    </def>
+  </definitions>
+  <variables>
+    <var name="recorder">false</var>
+    <script-var name="tag0">~/.config/eww/scripts/status --tags --monitor 0</script-var>
+    <script-var name="tag1">~/.config/eww/scripts/status --tags --monitor 1</script-var>
+    <script-var interval="600s" name="pacman">checkupdates | wc -l</script-var>
+    <script-var name="mpris-status">playerctl status -F</script-var>
+    <script-var name="mpris">playerctl metadata --format '{{title}}' -F</script-var>
+    <script-var interval="15m" name="mako">makoctl reload</script-var>
+    <script-var interval="60s" name="network">nmcli -p -g {connection} | grep -e 'connected to' | sed -e 's/ .* //' -e 's/.*://'</script-var>
+  </variables>
+</eww>

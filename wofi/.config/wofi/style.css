@@ -1,0 +1,55 @@
+@import "/home/bryan/.config/waybar/material.css";
+
+#entry {
+border-radius: 5px;
+padding: 5px;
+margin: 0px 4px 0px 4px;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+#entry:selected {
+border: 1px solid @yellow;
+background-color: @darkish;
+}
+ 
+#text:selected {
+color: @yellow;
+}
+ 
+#window {
+background-color: transparent;
+font-family: Cascadia Mono;
+font-size:12px;
+}
+
+#input {
+border: none;
+background-color: @dark;
+margin: 4px;
+}
+
+#inner-box {
+margin-right: 5px;
+}
+
+#outer-box {
+background-color: @darker;
+border-bottom: 1px solid #474747;
+padding: 3px;
+}
+
+#scroll {
+}
+
+#text {
+background-color: transparent;
+} 
+
+#img {
+  background-color: transparent;
+  margin-right: 8px;
+}

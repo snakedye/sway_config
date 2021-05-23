@@ -1,0 +1,20 @@
+# Autostart
+exec ~/.local/bin/eww daemon
+exec_always waybar
+exec autotiling
+exec kdeconnect-indicator
+exec nm-applet --indicator
+exec mpd ~/.config/mpd/mpd.conf
+exec mpDris2
+# exec "syncthing -no-browser"
+exec /usr/lib/xdg-desktop-portal-wlr
+exec sh /home/bryan/.nix-profile/etc/profile.d/nix.sh
+exec python3 ~/.config/sway/swayfader.py
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+# exec mkfifo $SWAYSOCK.wob
+# exec "tail -f $SWAYSOCK.wob | wob --border-color '#ffdcbb8c' --background-color '#cc3a3a3a' --bar-color '#ffdcbb8c'"
+
+# Dynamic Wallpaper
+# exec "oguri -c ~/.config/oguri/config"
+# exec dwall -s flcl &
+

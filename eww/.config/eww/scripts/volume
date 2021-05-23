@@ -1,0 +1,27 @@
+#!/usr/bin/env sh
+
+status=$(~/.local/bin/eww windows | grep volume)
+
+if [[ -n $1 ]]; then
+  if [[ "$1" =~ ^[0-9]+$ ]]; then
+    echo $1 >> /tmp/ewwpipe
+    volume=$(echo $1 | awk '{print ($0-int($0)<0.499)?int($0):int($0)+1}')
+    pamixer --set-volume $volume
+  fi
+else
+  pamixer --get-volume >> /tmp/ewwpipe
+fi
+
+show() {
+  killall -q sleep 2> /dev/null
+  if [[ ! $status =~ \* ]]; then
+    ~/.local/bin/eww open volume-indicator
+  fi
+  hide &
+}
+
+hide() {
+  sleep 1.5 && ~/.local/bin/eww close volume-indicator
+}
+
+show

@@ -1,0 +1,32 @@
+<eww>
+  <definitions>
+    <def name="indicator">
+      <box valign="fill" 
+        halign="center"
+        style="font-size: 130px"
+        spacing="0"
+        class="overlay" orientation="v" space-evenly="false" visible="{{overlay}}">
+        <volume_icon/>
+        <volume_indicator/>
+      </box>
+    </def>
+    <def name="volume_icon">
+        <label class="{{if muted then 'muted' else 'unmuted'}}"
+          halign="center"
+          valign="center"
+            text="{{if muted then 'ﱝ' else if volume &lt; 30 then 'ﱜ' else if volume &lt; 60 then '奔' else '墳'}}"></label>
+    </def>
+    <def name="volume_indicator">
+      <box class="{{if muted then 'muted' else 'unmuted'}}"
+        orientation="h" space-evenly="false" spacing="15" halign="end">
+        <progress style="min-height: 12px;" width="180" valign="center" value="{{volume}}"/>
+      </box>
+    </def>
+  </definitions>
+  <variables>
+    <script-var name="volume">tail -f /tmp/ewwpipe</script-var>
+    <script-var interval="3s" name="volume_5">pamixer --get-volume</script-var>
+    <var name="overlay">true</var>
+    <var name="muted">false</var>
+  </variables>
+</eww>

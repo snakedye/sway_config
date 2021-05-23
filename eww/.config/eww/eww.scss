@@ -1,0 +1,274 @@
+* {
+  all: unset; //Unsets everything so you can style everything from scratch
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeOut {
+  from {opacity: 1;}
+  to {opacity: 0;}
+}
+
+//Global Styles
+window {
+	color: #b8b8ac;
+  font-family: CascadiaCode;
+}
+
+trough {
+  all: unset;
+  background-color: #595959;
+  border-radius: 50px;
+  min-height: 4px;
+}
+trough progress, highlight {
+  min-height: 4px;
+  border-radius: 50px;
+  background-color: #dcbb8c;
+}
+
+.seperator trough  {
+  all: unset;
+  min-height: 1px;
+  margin: 0px 15px 0px 15px;
+  background-color: #474747;
+}
+
+.calendar {
+  padding:10px;
+}
+calendar {
+  all: unset;
+  padding:10px;
+}
+
+expander {
+  all: unset;
+  color: transparent;
+  // border-bottom: 2px solid #474747;
+  // padding: 5px;
+}
+
+calendar:selected {
+	color: #dcbb8c;
+}
+
+.widget {
+	background-color: #3a3a3a;
+  border-radius: 10px;
+  padding: 25px 0px 25px 0px;
+  margin: 5px;
+}
+
+.profile {
+  background-image: url('/home/bryan/Pictures/Fire_Punch/4.jpg');
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px;
+  box-shadow: inset 0px 2px 2px  #0F0F0F;
+}
+.overlay {
+  margin: 15px;
+  padding: 25px;
+  border-radius: 10px;
+  border: 1px solid #474747;
+	background-color: #3a3a3a;
+  box-shadow: 0px 0px 3px 1px  #0F0F0F;
+  animation-name: fadeIn;
+  animation-duration: 0.1s;
+}
+.muted, .muted scale trough highlight {
+  color: #6f6f6f;
+  background-color: transparent;
+}
+.Close {
+  animation-name: fadeOut;
+  animation-duration: 0.5s;
+}
+.hub {
+  animation-name: fadeIn;
+  animation-duration: 0.1s;
+  padding: 10px;
+  border: 1px solid #3a3a3a;
+  border-radius: 20px;
+	background-color: #414141;
+  margin: 15px;
+  box-shadow: 0px 0px 5px 0.2px  #232323;
+}
+.notification {
+  animation-name: fadeIn;
+  animation-duration: 0.3s;
+  font-family: CascadiaMono;
+  font-size: 11px;
+  // border: 2px solid #474747;
+  border-radius: 5px;
+	background-color: #3a3a3a;
+}
+.wrap {
+  padding: 7px;
+  // border-left: 1px solid #474747;
+}
+.item {
+	animation-name: fadeIn;
+	animation-duration: 0.5s;
+  font-size: 12px;
+}
+.item label {
+  margin:5px;
+  font-size: 12px;
+}
+.icons button {
+	background-color: #3a3a3a;
+  border-radius: 15px;
+  padding: 15px;
+}
+.icons button:hover {
+	background-color: #ad936e;
+}
+.item button {
+  all: unset;
+  padding: 15px;
+  border-radius: 5px;
+  border-radius: 10px;
+}
+.button:hover {
+	background-color: #474747;
+}
+
+/*
+ * Configuration for the eww hub
+*/
+.user {
+  all: unset;
+  margin: 25px;
+}
+.icon {
+  color: #f0c674;
+  font-size:22px;
+}
+.indicator label {
+  font-size: 20px;
+}
+.indicator scale slider {
+  all: unset;
+	min-height: 10px;
+	margin: -6px;
+	border-radius: 100%;
+	background-color: #474747;
+}
+/*
+ * Media cluster
+*/
+.media .song_cover {
+  background-size: contain;
+  border-radius: 7px;
+}
+.media-button button {
+  all: unset;
+  background-color: #3a3a3a;
+  font-size:20px;
+  color: #dcbb8c;
+  border-radius: 10px;
+  padding:2px;
+}
+.media-button button:hover {
+	background-color: #474747;
+}
+/*
+ * System status
+*/
+.status scale trough {
+  padding: 2px;
+  opacity: 0.5;
+  min-height: 8px;
+}
+.status label {
+  font-size: 26px;
+}
+.ram trough highlight {
+  background-color: #cb7073;
+}
+.cpu trough highlight {
+  background-color: #7e93a2;
+}
+.gpu trough highlight {
+  background-color: #9da98d;
+}
+.layout {
+  border-radius: 5px;
+  padding: 0px 8px 0px 8px;
+}
+.layout:hover {
+	background-color: #414141;
+  border-radius: 5px;
+  padding: 0px 8px 0px 8px;
+}
+.layout image {
+  border: none;
+}
+/*
+ * Config for power buttons
+*/
+.power {
+  border-radius: 10px;
+  color:#6f6f6f;
+  padding: 10px;
+  // border: 2px solid #414141;
+}
+.power:hover {
+	color: #8d987e;
+}
+/*
+ * Config for eww bar
+*/
+.bar {
+  background-color: transparent;
+  font-size: 11px;
+  padding: 0px 15px 0px 15px;
+}
+.tray {
+  all: unset;
+  font-size: 11px;
+}
+.left button {
+  all: unset;
+	color: #b0b4bc;
+  font-size: 10px;
+  font-weight: bold;
+}
+.bar .Paused {
+  opacity: 0.3;
+}
+.bar .Playing {
+  color: #dcbb8c;
+}
+.bar button {
+  all: unset;
+  padding: 5px;
+  min-height: 6px;
+  font-weight: bold;
+}
+.link button {
+  font-size: 14px;
+}
+.link button:hover {
+  opacity: 0.5;
+}
+.tags {
+  font-size: 12px;
+  color: #494949;
+}
+.tags .active {
+  color: #dcbb8c;
+}
+.tags .occupied {
+	color: #9da98d;
+}
+.tags button:hover {
+  color: #dcbb8c;
+  opacity: 0.8;
+}

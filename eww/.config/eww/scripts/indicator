@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+
+show() {
+  killall -q sleep
+  ~/.local/bin/eww update overlay=true
+  hide &
+}
+
+hide() {
+  sleep 3 && ~/.local/bin/eww update overlay=false
+}
+
+show
+
