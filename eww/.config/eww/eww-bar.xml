@@ -23,29 +23,35 @@
       </box>
     </def>
     <def name="workspaces1">
-      <box class="tags" spacing="20" halign="center">
-        <button class="{{if tag1 =~ '^1' || tag1 =~ '^32' then 'active' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 1">一</button>
-        <button class="{{if tag1 =~ '^2' || tag1 =~ '^32' then 'active' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 2">二</button>
-        <button class="{{if tag1 =~ '^3' || tag1 =~ '^32' then 'active' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 3">三</button>
-        <button class="{{if tag1 =~ '^4' || tag1 =~ '^32' then 'active' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 4">四</button>
-        <button class="{{if tag1 =~ '^5' || tag1 =~ '^32' then 'active' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 5">五</button>
-        <button class="{{if tag1 =~ '^6' || tag1 =~ '^32' then 'active' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 6">六</button>
-        <button class="{{if tag1 =~ '^7' || tag1 =~ '^32' then 'active' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 7">七</button>
-        <button class="{{if tag1 =~ '^8' || tag1 =~ '^32' then 'active' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 8">八</button>
-        <button class="{{if tag1 =~ '^9' || tag1 =~ '^32' then 'active' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 9">九</button>
+      <box class="tags" spacing="10" space-evenly="false" halign="center">
+        <button class="{{if tag1 =~ '(^1 | 1 | 1$)' then 'active' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 1">I</button>
+        <button class="{{if tag1 =~ '(^2 | 2 | 2$)' then 'active' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 2">II</button>
+        <button class="{{if tag1 =~ '(^3 | 3 | 3$)' then 'active' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 3">III</button>
+        <button class="{{if tag1 =~ '(^4 | 4 | 4$)' then 'active' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 4">IV</button>
+        <button class="{{if tag1 =~ '(^5 | 5 | 5$)' then 'active' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 5">V</button>
+        <button class="{{if tag1 =~ '(^6 | 6 | 5$)' then 'active' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 6">VI</button>
+        <button class="{{if tag1 =~ '(^7 | 7 | 6$)' then 'active' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 7">VII</button>
+        <button class="{{if tag1 =~ '(^8 | 8 | 8$)' then 'active' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 8">VIII</button>
+        <button class="{{if tag1 =~ '(^9 | 9 | 9$)' then 'active' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 9">IX</button>
+        <button class="{{if tag1 =~ '(^20 | 20 | 20$)' then 'active' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 20">M</button>
+        <button class="{{if tag1 =~ '(^21 | 21 | 21$)' then 'active' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 21">N</button>
+        <button class="{{if tag1 =~ '(^22 | 22 | 22$)' then 'active' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 22">B</button>
       </box>
     </def>
     <def name="workspaces0">
-      <box class="tags" spacing="20" halign="center">
-        <button class="{{if tag0 =~ '^1' || tag0 =~ '^32' then 'active'  else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 1">一</button>
-        <button class="{{if tag0 =~ '^2' || tag0 =~ '^32' then 'active'  else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 2">二</button>
-        <button class="{{if tag0 =~ '^3' || tag0 =~ '^32' then 'active'  else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 3">三</button>
-        <button class="{{if tag0 =~ '^4' || tag0 =~ '^32' then 'active'  else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 4">四</button>
-        <button class="{{if tag0 =~ '^5' || tag0 =~ '^32' then 'active'  else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 5">五</button>
-        <button class="{{if tag0 =~ '^6' || tag0 =~ '^32' then 'active'  else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 6">六</button>
-        <button class="{{if tag0 =~ '^7' || tag0 =~ '^32' then 'active'  else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 7">七</button>
-        <button class="{{if tag0 =~ '^8' || tag0 =~ '^32' then 'active'  else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 8">八</button>
-        <button class="{{if tag0 =~ '^9' || tag0 =~ '^32' then 'active'  else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 9">九</button>
+      <box class="tags" spacing="10" space-evenly="false" halign="center">
+        <button class="{{if tag0 =~ '(^1 | 1 | 1$)' then 'active'  else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 1">I</button>
+        <button class="{{if tag0 =~ '(^2 | 2 | 2$)' then 'active'  else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 2">II</button>
+        <button class="{{if tag0 =~ '(^3 | 3 | 3$)' then 'active'  else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 3">III</button>
+        <button class="{{if tag0 =~ '(^4 | 4 | 4$)' then 'active'  else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 4">IV</button>
+        <button class="{{if tag0 =~ '(^5 | 5 | 5$)' then 'active'  else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 5">V</button>
+        <button class="{{if tag0 =~ '(^6 | 6 | 6$)' then 'active'  else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 6">VI</button>
+        <button class="{{if tag0 =~ '(^7 | 7 | 7$)' then 'active'  else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 7">VII</button>
+        <button class="{{if tag0 =~ '(^8 | 8 | 8$)' then 'active'  else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 8">VIII</button>
+        <button class="{{if tag0 =~ '(^9 | 9 | 9$)' then 'active'  else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 9">IX</button>
+        <button class="{{if tag0 =~ '(^20 | 20 | 20$)' then 'active' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 20">M</button>
+        <button class="{{if tag0 =~ '(^21 | 21 | 21$)' then 'active' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 21">N</button>
+        <button class="{{if tag0 =~ '(^22 | 22 | 22$)' then 'active' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 22">B</button>
       </box>
     </def>
     <def name="volume">
@@ -99,12 +105,11 @@
   </definitions>
   <variables>
     <var name="recorder">false</var>
-    <script-var name="tag0">~/.config/eww/scripts/status --tags --monitor 0</script-var>
-    <script-var name="tag1">~/.config/eww/scripts/status --tags --monitor 1</script-var>
+    <script-var name="tag0">~/.local/bin/ristate -t -m 0</script-var>
+    <script-var name="tag1">~/.local/bin/ristate -t -m 1</script-var>
     <script-var interval="600s" name="pacman">checkupdates | wc -l</script-var>
     <script-var name="mpris-status">playerctl status -F</script-var>
     <script-var name="mpris">playerctl metadata --format '{{title}}' -F</script-var>
-    <script-var interval="15m" name="mako">makoctl reload</script-var>
     <script-var interval="60s" name="network">nmcli -p -g {connection} | grep -e 'connected to' | sed -e 's/ .* //' -e 's/.*://'</script-var>
   </variables>
 </eww>

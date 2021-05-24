@@ -29,7 +29,7 @@ contain are defined. -->
         <bar1/> <!--This is the def we created earlier-->
       </widget>
     </window>
-    <window name="bar0" screen="3" stacking="bt" exclusive="true">
+    <window name="bar0" screen="0" stacking="bt" exclusive="true">
       <geometry anchor="top center" x="0" y="0" width="100%" height="35"/> <!--Specifies geometry-->
       <widget>
         <bar0/> <!--This is the def we created earlier-->

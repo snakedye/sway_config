@@ -5,7 +5,6 @@ export XDG_CURRENT_DESKTOP=river
 # Autostart
 ~/.local/bin/eww daemon
 riverctl spawn 'kile'
-riverctl spawn 'waybar'
 riverctl spawn '~/.local/bin/notification'
 riverctl spawn 'nm-applet --indicator'
 riverctl spawn '/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1'
@@ -256,3 +255,6 @@ do
   riverctl focus-output next
 done
 riverctl focus-output next
+
+# Launch eww bars
+sleep 5 && ~/.local/bin/eww open-many bar0 bar1
