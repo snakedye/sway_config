@@ -165,15 +165,14 @@ calendar:selected {
   background-size: contain;
   border-radius: 7px;
 }
-.media-button button {
+.mpc button {
   all: unset;
-  background-color: #3a3a3a;
   color: #dcbb8c;
   border-radius: 10px;
   padding:7px 0px 7px 0px;
 }
-.media-button button:hover {
-	background-color: #474747;
+.mpc button:hover {
+  background-color: #3a3a3a;
 }
 /*
  * System status
@@ -261,11 +260,13 @@ calendar:selected {
 }
 .tags .active {
   color: #dcbb8c;
+  font-weight: bold;
 }
 .tags .occupied {
+  opacity: 0.6;
 	color: #9da98d;
 }
 .tags button:hover {
   color: #dcbb8c;
-  opacity: 0.8;
+  opacity: 0.4;
 }

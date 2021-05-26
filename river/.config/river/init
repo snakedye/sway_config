@@ -12,12 +12,12 @@ riverctl spawn 'mpd ~/.config/mpd/mpd.conf'
 riverctl spawn '/usr/lib/xdg-desktop-portal-wlr'
 riverctl spawn 'mpDris2'
 riverctl spawn 'swayidle -w timeout 1080 "swaylock -f" after-resume "swaylock -f"'
-if [[ -e /tmp/ewwpipe ]]; then
+if [[ ! -e /tmp/ewwpipe ]]; then
   mkfifo /tmp/ewwpipe
 fi
 
 # Wallpaper
-riverctl spawn "swaybg -o* -c#3a3a3a"
+riverctl spawn "swaybg -o* -c#302f2f"
 
 # Use the "logo" key as the primary modifier
 mod="Mod4"
@@ -106,7 +106,7 @@ do
   # Custom layouts
   riverctl map "${mode}" $mod Y set-layout-value "${layout}" string set_tag "focused|{v:hh}"
   riverctl map "${mode}" $mod T set-layout-value "${layout}" string set_tag "focused|{v:th}"
-  riverctl map "${mode}" $mod D set-layout-value "${layout}" string set_tag "focused|{d:ht{v:hh}}||0.55|1"
+  riverctl map "${mode}" $mod D set-layout-value "${layout}" string set_tag "focused|{d:ht{v:hh}}||0.65|1"
   riverctl map "${mode}" $mod U set-layout-value "${layout}" string set_tag "focused|{v:hth}"
 done
 
@@ -231,7 +231,7 @@ riverctl float-filter-add "imv"
 # riverctl csd-filter-add "firefox"
 
 # Set opacity and fade effect
-riverctl opacity 1.0 0.95 0.0 0.1 20
+# riverctl opacity 1.0 0.95 0.0 0.1 20
 
 # Border color focused
 riverctl border-color-focused '#7A675E'
@@ -248,13 +248,19 @@ riverctl default-layout kile
 # Kile configuration
 for output in "DP-2" "HDMI-A-1"
 do
-  # riverctl set-layout-value kile string smart_padding "true"
   riverctl set-layout-value kile int outer_padding 5
-  riverctl set-layout-value kile string set_tag "all|{v:hh} 32|{v:hth}|1|0.5|1"
+  case $output in
+    DP-2 )
+      riverctl set-layout-value kile string set_tag "all|{v:hh}|||1 32|{v:hth}|1|0.5|1"
+      ;;
+    HDMI-A-1 )
+      riverctl set-layout-value kile string set_tag "all|{v:hh}|||0 32|{v:hth}|1|0.5|1"
+      ;;
+  esac
   riverctl attach-mode bottom
   riverctl focus-output next
 done
 riverctl focus-output next
 
 # Launch eww bars
-sleep 5 && ~/.local/bin/eww open-many bar0 bar1
+sleep 6 && ~/.local/bin/eww open-many bar0 bar1

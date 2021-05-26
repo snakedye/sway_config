@@ -54,7 +54,7 @@
     </def>
 
     <def name="mpd">
-      <box orientation="h" spacing="15" halign="center" class="media-button">
+      <box orientation="h" spacing="15" halign="center" class="mpc">
         <button width="40" onclick="mpc --host 127.0.0.1 --port 6002 -q prev">玲</button>
         <button width="40" onclick="mpc --host 127.0.0.1 --port 6002 -q toggle">{{if mpris-status == 'Paused' then '契' else ''}}</button>
         <button width="40" onclick="mpc --host 127.0.0.1 --port 6002 -q next">怜</button>
@@ -74,7 +74,7 @@
     <def name="volume_slider">
       <box class="indicator" orientation="h" space-evenly="false" spacing="25" halign="center">
         <volume_icon/>
-        <scale width="250" valign="center" min="0" max="100" value="{{volume_5}}" onchange="~/.config/eww/scripts/volume {}"/>
+        <scale width="250" valign="center" min="0" max="100" value="{{volume}}" onchange="~/.config/eww/scripts/volume {}"/>
       </box>
     </def>
 

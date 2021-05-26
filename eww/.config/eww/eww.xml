@@ -18,7 +18,7 @@ contain are defined. -->
       </widget>
     </window>
     <window name="notification" stacking="fg">
-      <geometry anchor="top right" x="10" y="10" width="395" height="5%"/> <!--Specifies geometry-->
+      <geometry anchor="top right" x="10" y="10" width="395" height="3%"/> <!--Specifies geometry-->
       <widget>
         <notification-widget/> <!--This is the def we created earlier-->
       </widget>
