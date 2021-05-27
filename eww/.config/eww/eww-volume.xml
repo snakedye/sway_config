@@ -24,7 +24,7 @@
     </def>
   </definitions>
   <variables>
-    <script-var name="volume">tail -f /tmp/ewwpipe</script-var>
+    <script-var name="volume">pactl subscribe | grep --line-buffered "sink" | xargs -I{} pamixer --get-volume</script-var>
     <var name="overlay">true</var>
     <var name="muted">false</var>
   </variables>

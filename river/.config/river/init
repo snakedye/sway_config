@@ -263,4 +263,4 @@ done
 riverctl focus-output next
 
 # Launch eww bars
-sleep 6 && ~/.local/bin/eww open-many bar0 bar1
+sleep 5 && ~/.local/bin/eww open-many bar0 bar1

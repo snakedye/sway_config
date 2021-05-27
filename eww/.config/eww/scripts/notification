@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-LITERAL='<box orientation="v" spacing="20" space-evenly="false" style="padding: 0px 10px 10px 10px">'
+LITERAL='<box orientation="v" spacing="20" space-evenly="false" style="margin: 0 10px 0 10px;padding: 0px 10px 10px 10px">'
 LINE=0
 
 show() {
@@ -19,7 +19,7 @@ hide() {
 }
 
 reset() {
-  LITERAL='<box orientation="v" spacing="20" space-evenly="false" style="padding: 0px 10px 10px 10px">'
+  LITERAL='<box orientation="v" spacing="20" space-evenly="false" style="margin: 0 10px 0 10px;padding: 0px 10px 10px 10px">'
   echo clear > /tmp/notification
   ~/.local/bin/eww update hide="false"
 }
@@ -68,7 +68,7 @@ do
     case $LINE in
       0 )
         if [[ $(cat /tmp/notification) == "clear" ]]; then
-          LITERAL='<box orientation="v" spacing="20" space-evenly="false" style="padding: 0px 10px 10px 10px">'
+          LITERAL='<box orientation="v" spacing="20" space-evenly="false" style="margin: 0 10px 0 10px;padding: 0px 10px 10px 10px">'
           echo > /tmp/notification
         fi
         APP_NAME="$value"
