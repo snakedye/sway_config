@@ -7,7 +7,6 @@ show() {
   OPENED=$(~/.local/bin/eww windows | grep notification)
   killall -q sleep 2> /dev/null
   ~/.local/bin/eww update notifs="$LITERAL"
-  ~/.local/bin/eww update hide="true"
   if [[ ! $OPENED =~ \* ]]; then
     ~/.local/bin/eww open notification
   fi
@@ -20,8 +19,6 @@ hide() {
 
 reset() {
   LITERAL='<box orientation="v" spacing="20" space-evenly="false" style="margin: 0 10px 0 10px;padding: 0px 10px 10px 10px">'
-  echo clear > /tmp/notification
-  ~/.local/bin/eww update hide="false"
 }
 
 build() {
@@ -60,17 +57,14 @@ build() {
 </box>"
 }
 
-tiramisu | while read -r value
+tiramisu -s | while read -r value
 do
   if [[ $value =~ \#.* ]]; then
     :
   else
     case $LINE in
       0 )
-        if [[ $(cat /tmp/notification) == "clear" ]]; then
-          LITERAL='<box orientation="v" spacing="20" space-evenly="false" style="margin: 0 10px 0 10px;padding: 0px 10px 10px 10px">'
-          echo > /tmp/notification
-        fi
+        LITERAL='<box orientation="v" spacing="20" space-evenly="false" style="margin: 0 10px 0 10px;padding: 0px 10px 10px 10px">'
         APP_NAME="$value"
         ;;
       1 )

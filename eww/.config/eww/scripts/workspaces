@@ -3,6 +3,5 @@
 if [ -z $SWAYSOCK ]; then
   riverctl set-focused-tags $((1 << ($@ - 1)))
 else
-  # swaymsg workspace $(($@ + 5))
   swaymsg workspace $@
 fi

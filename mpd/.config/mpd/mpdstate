@@ -1,8 +1,8 @@
 sw_volume: 94
 audio_device_state:1:alsa_output.usb-Razer_Razer_USB_Sound_Card_00000000-00.analog-stereo
 state: pause
-current: 4
-time: 8.662000
+current: 7
+time: 235.678000
 random: 0
 repeat: 0
 single: 0

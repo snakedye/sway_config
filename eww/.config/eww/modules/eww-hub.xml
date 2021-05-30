@@ -9,7 +9,6 @@
         <status/>
         <control/>
         <lock/>
-        <notification-center/>
       </box>
     </def>
 
@@ -18,19 +17,19 @@
     </def>
 
     <def name="locale">
-      <box style="padding: 25px;font-family: Ubuntu Mono;"
+      <box style="padding: 25px"
         orientation="v" space-evenly="false" valign="center" spacing="10" halign="center">
-        <label text="{{time}}" style="font-size: 5.5em;"></label>
-        <label text="{{date}}" style="font-size: 1.5em;"></label>
+        <label text="{{time}}" style="font-size: 5em;"></label>
+        <label text="{{date}}" style="font-size: 1.3em;"></label>
       </box>
     </def>
 
     <def name="media">
-      <box halign="center" spacing="20" orientation="h" space-evenly="true">
+      <box halign="center" spacing="20" orientation="h" space-evenly="false">
         <!-- <image style="border: 2px solid #414141" halign="center" width="110" path="/home/bryan/.cache/ncmpcpp/{{album}}.png"/> -->
         <box spacing="10" orientation="v" halign="center" space-evenly="true" class="media-cluster">
-          <label style="color:#6f6f6f ;font-size: 1em" limit-width="45" text="{{mpris}}{{if mpris =~ '...................................+' then '...' else ''}}"></label>
-          <label style="font-size: 1em" text="{{mpris_position}}"></label>
+          <label style="font-size: 1em" limit-width="50" text="{{mpris.text}}"></label>
+          <label style="color:#6f6f6f ;font-size: 1em" text="{{mpris_position}}"></label>
           <mpd/>
         </box>
       </box>
@@ -56,7 +55,7 @@
     <def name="mpd">
       <box orientation="h" spacing="15" halign="center" class="mpc">
         <button width="40" onclick="mpc --host 127.0.0.1 --port 6002 -q prev">玲</button>
-        <button width="40" onclick="mpc --host 127.0.0.1 --port 6002 -q toggle">{{if mpris-status == 'Paused' then '契' else ''}}</button>
+        <button width="40" onclick="mpc --host 127.0.0.1 --port 6002 -q toggle">{{if (mpris.status) == 'Paused' then '契' else ''}}</button>
         <button width="40" onclick="mpc --host 127.0.0.1 --port 6002 -q next">怜</button>
       </box>
     </def>
@@ -103,8 +102,15 @@
         <button class="layout" onclick="riverctl set-layout-value kile string set_tag 'focused|{d:ht{v:hh}}||0.7|1'">
           <image height="45" path="/home/bryan/Pictures/layouts/dwindle.svg"></image>
         </button>
-        <button class="layout" onclick="riverctl set-layout-value kile string set_tag 'focused|t'">
+        <button class="layout" onclick="riverctl set-layout-value kile string set_tag 'focused|{v:th}||0.6|1'">
           <image height="45" path="/home/bryan/Pictures/layouts/tab.svg"></image>
+        </button>
+        <button 
+          class="layout"
+          style="font-size: 32px;"
+          onmiddleclick="riverctl set-layout-value kile string resize false"
+          onclick="riverctl set-layout-value kile string dimension &quot;$(slurp -f '%x %y %w %h')&quot;  &amp">
+          
         </button>
         <button
           class="layout"

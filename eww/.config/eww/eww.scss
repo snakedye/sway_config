@@ -93,22 +93,15 @@ calendar:selected {
   animation-duration: 0.1s;
   padding: 10px;
   border: 1px solid #3a3a3a;
-  border-radius: 20px;
+  border-radius: 10px;
   margin: 15px;
   box-shadow: 0px 0px 5px 0.2px  #232323;
 }
 .notification {
-  animation-name: fadeIn;
-  animation-duration: 0.3s;
   font-family: CascadiaMono;
   font-size: 11px;
-  // border: 2px solid #474747;
   border-radius: 5px;
 	background-color: #302f2f;
-}
-.wrap {
-  padding: 7px;
-  // border-left: 1px solid #474747;
 }
 .item {
 	animation-name: fadeIn;
@@ -222,9 +215,11 @@ calendar:selected {
  * Config for eww bar
 */
 .bar {
-  background-color: transparent;
+  background-color: #302f2f;
   font-size: 11px;
   padding: 0px 15px 0px 15px;
+  margin-bottom: 5px;
+  box-shadow: 0px 0px 3px 0.1px  #232323;
 }
 .tray {
   all: unset;
@@ -236,10 +231,10 @@ calendar:selected {
   font-size: 10px;
   font-weight: bold;
 }
-.bar .Paused {
+.bar .Paused, .null {
   opacity: 0.3;
 }
-.bar .Playing {
+.bar .Playing, .notified {
   color: #dcbb8c;
 }
 .bar button {
@@ -263,10 +258,8 @@ calendar:selected {
   font-weight: bold;
 }
 .tags .occupied {
-  opacity: 0.6;
 	color: #9da98d;
 }
 .tags button:hover {
-  color: #dcbb8c;
-  opacity: 0.4;
+  opacity: 0.6;
 }

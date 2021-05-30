@@ -22,6 +22,6 @@
   </definitions>
   <variables>
     <var name="notifs"></var>
-    <var name="hide">false</var>
+    <var name="hide">true</var>
   </variables>
 </eww>
