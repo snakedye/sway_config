@@ -17,5 +17,8 @@ hide() {
 if [[ -n $1 ]]; then
   volume=$(echo $1 | awk '{print ($0-int($0)<0.499)?int($0):int($0)+1}')
   pamixer --set-volume $volume
+  echo $volume >> /tmp/ewwpipe
   show
+else
+  pamixer --get-volume >> /tmp/ewwpipe
 fi

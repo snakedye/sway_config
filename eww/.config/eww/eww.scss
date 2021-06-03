@@ -69,15 +69,13 @@ calendar:selected {
   border-radius: 10px;
   box-shadow: inset 0px 2px 2px  #0F0F0F;
 }
-.overlay {
-  margin: 15px;
-  padding: 25px;
+.volume-indicator {
+  margin: 10px;
+  padding: 10px 15px 10px 15px;
   border-radius: 10px;
   border: 1px solid #3a3a3a;
 	background-color: #302f2f;
-  box-shadow: 0px 0px 3px 1px  #0F0F0F;
-  animation-name: fadeIn;
-  animation-duration: 0.1s;
+  box-shadow: 0px 0px 5px 0.2px  rgba(0,0,0,0.3);
 }
 .muted, .muted scale trough highlight {
   color: #6f6f6f;
@@ -95,13 +93,18 @@ calendar:selected {
   border: 1px solid #3a3a3a;
   border-radius: 10px;
   margin: 15px;
-  box-shadow: 0px 0px 5px 0.2px  #232323;
+  box-shadow: 0px 0px 5px 0.2px  rgba(0,0,0,0.3);
 }
 .notification {
   font-family: CascadiaMono;
   font-size: 11px;
   border-radius: 5px;
 	background-color: #302f2f;
+  border: 1px solid #3a3a3a;
+}
+.notif {
+	background-color: #3a3a3a;
+  border-radius: 5px;
 }
 .item {
 	animation-name: fadeIn;

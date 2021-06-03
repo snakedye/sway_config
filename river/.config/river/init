@@ -12,7 +12,7 @@ riverctl spawn 'mpDris2'
 riverctl spawn 'swayidle -w timeout 1080 "swaylock -f" after-resume "swaylock -f"'
 
 # Wallpaper
-riverctl spawn "~/.azotebg"
+riverctl spawn "swaybg -o '*' -i '/home/bryan/wallpapers/ghost.png' -m tile"
 
 # Use the "logo" key as the primary modifier
 mod="Mod4"
@@ -226,7 +226,7 @@ riverctl float-filter-add "imv"
 riverctl csd-filter-add "swappy"
 
 # Set opacity and fade effect
-# riverctl opacity 1.0 0.95 0.0 0.1 20
+riverctl opacity 1.0 0.9 0.0 0.1 30
 
 # Border color focused
 riverctl border-color-focused '#7A675E'
@@ -249,7 +249,6 @@ do
       riverctl set-layout-value kile string set_tag "all|{v:hh}|||0 32|{v:hth}|1|0.5|1"
       ;;
     HDMI-A-1)
-      riverctl set-layout-value kile string set_tag "all|{v:hh}|||1 32|{v:hth}|1|0.5|1"
       riverctl set-layout-value kile string set_tag "all|{v:hh}|||1 32|{v:hth}|1|0.5|1"
       ;;
   esac

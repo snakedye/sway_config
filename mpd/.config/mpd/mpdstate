@@ -1,8 +1,8 @@
 sw_volume: 94
 audio_device_state:1:alsa_output.usb-Razer_Razer_USB_Sound_Card_00000000-00.analog-stereo
 state: pause
-current: 7
-time: 235.678000
+current: 4
+time: 195.301000
 random: 0
 repeat: 0
 single: 0
@@ -27,4 +27,8 @@ playlist_begin
 13:Last Dinosaur (Fool on Cool Version).mp3
 14:Star overhead.mp3
 15:Thank you, my twilight (Fool on cool Version).mp3
+16:apdl.mp3
+17:ÇA VA ENSEMBLE.mp3
+18:apdl.mp3
+19:ÇA VA ENSEMBLE.mp3
 playlist_end

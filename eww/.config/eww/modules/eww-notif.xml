@@ -1,15 +1,15 @@
 <eww>
   <definitions>
     <def name="notification-widget">
-      <box style="padding: 0px;border-radius:10px; border: 2px solid #414141;">
+      <box style="padding: 0px;border-radius:10px; box-shadow: 0px 0px 3px 0.1px rgba(0,0,0,0.3); margin: 6px;">
         <notification-center/>
       </box>
     </def>
     <def name="notification-center">
-      <box class="widget" style="padding: 10px 0px 10px 0px;" orientation="v" spacing="0" space-evenly="false">
-        <box halign="fill" style="margin: 0 10px 0 10px;" orientation="h" spacing="10" space-evenly="true" class="header">
-          <button onclick="~/.config/eww/scripts/toggle" halign="start" style="font-weight: bold; padding: 5px; font-size: 12px">Notification Center</button>
-          <button onclick="echo clear > /tmp/notification; ~/.local/bin/eww update notifs=''" halign="end" style="background-color: #3a3a3a; padding: 0px 10px 0px 10px; font-size: 26px; border-radius: 10px;"></button>
+      <box class="widget" style="padding: 5px 0px 5px 0px;" orientation="v" spacing="0" space-evenly="false">
+        <box halign="fill" style="margin: 0 5px 0px 5px;" orientation="h" spacing="10" space-evenly="true" class="header">
+          <button onclick="~/.config/eww/scripts/toggle" halign="start" style="font-weight: bold; font-family: Ubuntu Mono; padding: 5px; font-size: 15px; color: #dcbb8c">Notification Center</button>
+          <button onclick="~/.local/bin/eww update notifs=''" halign="end" style="background-color: #3a3a3a; padding: 0px 10px 0px 10px; font-size: 26px; border-radius: 10px;"></button>
         </box>
         <notifications/>
       </box>

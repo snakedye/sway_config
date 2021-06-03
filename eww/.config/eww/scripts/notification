@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-LITERAL='<box orientation="v" spacing="20" space-evenly="false" style="margin: 0 10px 0 10px;padding: 0px 10px 10px 10px">'
+LITERAL='<box orientation="v" spacing="10" space-evenly="false" style="margin: 10px 5px 5px 5px;padding: 0px">'
 LINE=0
 
 show() {
@@ -14,19 +14,19 @@ show() {
 }
 
 hide() {
-  sleep 4.5 && ~/.local/bin/eww close notification && reset
+  sleep 4.5 && ~/.local/bin/eww close notification
 }
 
 reset() {
-  LITERAL='<box orientation="v" spacing="20" space-evenly="false" style="margin: 0 10px 0 10px;padding: 0px 10px 10px 10px">'
+  LITERAL='<box orientation="v" spacing="10" space-evenly="false" style="margin: 10px 5px 5px 5px;padding: 0px">'
 }
 
 build() {
   if [[ $BODY =~ .{50,} ]]; then
     BODY="${BODY:0:50}..."
   fi
-  if [[ $SUMMARY =~ .{50,} ]]; then
-    SUMMARY="${SUMMARY:0:50}..."
+  if [[ $SUMMARY =~ .{30,} ]]; then
+    SUMMARY="${SUMMARY:0:30}..."
   fi
   if [[ ! -e $APP_ICON && -e /usr/share/icons/Papirus/64x64/mimetypes/$APP_ICON.svg  ]]; then
     APP_ICON=/usr/share/icons/Papirus/64x64/mimetypes/$APP_ICON.svg
@@ -37,15 +37,14 @@ build() {
     SHOW_ICON=false
   fi
   LITERAL=${LITERAL/%'</box>'}
-  LITERAL+="  <box orientation=\"v\" space-evenly=\"false\" class=\"notification\">
+  LITERAL+="  <box orientation=\"v\" space-evenly=\"false\">
     <button>
-      <box halign=\"start\" width=\"200\" spacing=\"15\" orientation=\"h\" space-evenly=\"false\" class=\"notif\">
-        <image 
-          style=\"padding: 1px; border: none\"
-          halign=\"center\" width=\"80\" visible=\"$SHOW_ICON\" path=\"$APP_ICON\"/>
-        <box width=\"200\" valign=\"center\" space-evenly=\"false\" spacing=\"5\" orientation=\"v\" halign=\"fill\" class=\"content\">
+      <box height=\"80\" spacing=\"0\" orientation=\"h\" space-evenly=\"false\" class=\"notif\">
+      <box width=\"80\" halign=\"center\" visible=\"$SHOW_ICON\"
+      style=\"background-image: url('$APP_ICON'); border-radius: 5px; margin: 0px 5px 0px 5px; background-size:contain; background-position: center; background-repeat: no-repeat\"></box>
+        <box width=\"200\" style=\"margin-left: 15px\" valign=\"center\" space-evenly=\"false\" spacing=\"5\" orientation=\"v\" halign=\"fill\" class=\"content\">
           <box width=\"230\" spacing=\"5\" orientation=\"v\" valign=\"center\" halign=\"start\" space-evenly=\"false\">
-            <label halign=\"start\" style=\"color: #dcbb8c; font-size: 14px; font-weight: bold\" limit-width=\"20\" markup=\"$SUMMARY\"></label>
+            <label halign=\"start\" style=\"color: #dcbb8c; font-size: 14px; font-weight: bold\" limit-width=\"30\" markup=\"$SUMMARY\"></label>
             <label halign=\"start\"  style=\"color: #6f6f6f\"
             text=\"$APP_NAME\" limit-width=\"15\"></label>
           </box>
@@ -64,17 +63,19 @@ do
   else
     case $LINE in
       0 )
-        LITERAL='<box orientation="v" spacing="20" space-evenly="false" style="margin: 0 10px 0 10px;padding: 0px 10px 10px 10px">'
-        APP_NAME="$value"
+        if [[ -z $(~/.local/bin/eww state | grep notifs | awk '{printf $2}') ]]; then
+          reset
+        fi
+        APP_NAME="${value//\"}"
         ;;
       1 )
         APP_ICON="$value"
         ;;
       3 )
-        SUMMARY="$value"
+        SUMMARY="${value//\"}"
         ;;
       4 )
-        BODY="$value"
+        BODY="${value//\"}"
         ;;
       5 )
         ACTION="$value"

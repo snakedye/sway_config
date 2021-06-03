@@ -17,6 +17,7 @@ ARTIST="$(mpc --host $HOST --port $PORT current --format "%artist%")"
 COVER="$HOME/.cache/ncmpcpp/$ALBUM.png"
 
 if [ ! -e "$COVER" ]; then
+  echo reeeee
   ffmpegthumbnailer -i "$MUSIC_DIR/$FILENAME" -o "$COVER" -s 300 2> /dev/null
 fi
 

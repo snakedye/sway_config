@@ -18,7 +18,7 @@ contain are defined. -->
       </widget>
     </window>
     <window name="notification" stacking="fg">
-      <geometry anchor="top right" x="10" y="10" width="395" height="3%"/> <!--Specifies geometry-->
+      <geometry anchor="top center" x="0" y="0" width="395" height="3%"/> <!--Specifies geometry-->
       <widget>
         <notification-widget/> <!--This is the def we created earlier-->
       </widget>
@@ -36,7 +36,7 @@ contain are defined. -->
       </widget>
     </window>
     <window name="volume-indicator" stacking="ov">
-      <geometry anchor="center" x="10" y="0" width="300" height="200"/> <!--Specifies geometry-->
+      <geometry anchor="bottom center" x="0" y="15" width="250" height="15"/> <!--Specifies geometry-->
       <widget>
         <indicator/> <!--This is the def we created earlier-->
       </widget>

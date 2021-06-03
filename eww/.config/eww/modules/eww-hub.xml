@@ -109,7 +109,7 @@
           class="layout"
           style="font-size: 32px;"
           onmiddleclick="riverctl set-layout-value kile string resize false"
-          onclick="riverctl set-layout-value kile string dimension &quot;$(slurp -f '%x %y %w %h')&quot;  &amp">
+          onclick="~/.local/bin/dimension &amp;">
           
         </button>
         <button
