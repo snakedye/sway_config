@@ -24,7 +24,7 @@
     </def>
   </definitions>
   <variables>
-    <script-var name="volume">tail -f /tmp/ewwpipe</script-var>
+    <script-var interval="3s" name="volume">pamixer --get-volume</script-var>
     <var name="overlay">true</var>
     <var name="muted">false</var>
   </variables>

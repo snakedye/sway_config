@@ -57,7 +57,7 @@
     <def name="volume">
       <box style="font-size: 14px" class="volume" orientation="h" space-evenly="false" spacing="15" halign="end">
         <volume_icon/>
-        <scale width="200" min="0" max="130" valign="center" value="{{volume}}" onchange="~/.config/eww/scripts/volume {}"/>
+        <scale width="200" min="0" max="130" valign="center" value="{{volume}}" onchange="pamixer --set-volume $(fish -c 'math -s0 {}')"/>
       </box>
     </def>
     <def name="tray">
