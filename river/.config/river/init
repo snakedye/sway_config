@@ -74,15 +74,12 @@ riverctl map normal $mod+Shift Return zoom
 # Nested layout (example)
 NESTED="focused|{\
     vertical:\
+    horizontal,\
     (\
-      {horizontal:vertical,vertical};\
-      1;0.60;0\
+      {horizontal:tab,vertical};\
+      1;0.65;0\
     ),\
-    (\
-      {horizontal:tab,tab};\
-      1;0.55;0\
-    ),\
-}|1||0"
+}|3|0.7|1"
 
 # Keybindings for kile
 for mode in "normal" "testing"
@@ -114,8 +111,7 @@ do
   # Custom layouts
   riverctl map "${mode}" $mod Y set-layout-value "${layout}" string layout "focused|{v:h,h}"
   riverctl map "${mode}" $mod T set-layout-value "${layout}" string layout "focused|{v:t,h}"
-  riverctl map "${mode}" $mod D set-layout-value "${layout}" string layout "focused|{d:h,t{v:h,h}}||0.65|1"
-  riverctl map "${mode}" $mod+Shift D set-layout-value "${layout}" string layout "${NESTED// }"
+  riverctl map "${mode}" $mod D set-layout-value "${layout}" string layout "${NESTED// }"
   riverctl map "${mode}" $mod U set-layout-value "${layout}" string layout "focused|{v:h,t,h}"
 done
 
