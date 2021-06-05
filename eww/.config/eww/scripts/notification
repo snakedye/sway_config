@@ -41,7 +41,7 @@ build() {
     <button>
       <box height=\"80\" spacing=\"0\" orientation=\"h\" space-evenly=\"false\" class=\"notif\">
       <box width=\"80\" halign=\"center\" visible=\"$SHOW_ICON\"
-      style=\"background-image: url('$APP_ICON'); border-radius: 5px; margin: 0px 5px 0px 5px; background-size:contain; background-position: center; background-repeat: no-repeat\"></box>
+      style=\"background-image: url('$APP_ICON'); border-radius: 5px 0px 0px 5px; background-size:contain; background-position: center; background-repeat: no-repeat\"></box>
         <box width=\"200\" style=\"margin-left: 15px\" valign=\"center\" space-evenly=\"false\" spacing=\"5\" orientation=\"v\" halign=\"fill\" class=\"content\">
           <box width=\"230\" spacing=\"5\" orientation=\"v\" valign=\"center\" halign=\"start\" space-evenly=\"false\">
             <label halign=\"start\" style=\"color: #dcbb8c; font-size: 14px; font-weight: bold\" limit-width=\"30\" markup=\"$SUMMARY\"></label>
