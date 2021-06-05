@@ -93,16 +93,16 @@
 
     <def name="layout">
       <box orientation="h" halign="center" spacing="10">
-        <button class="layout" onclick="riverctl set-layout-value kile string set_tag 'focused|{v:hh}||0.6'">
+        <button class="layout" onclick="riverctl set-layout-value kile string set_tag 'focused|{v:h,h}||0.6'">
           <image height="45" path="/home/bryan/Pictures/layouts/vertical.svg"></image>
         </button>
-        <button class="layout" onclick="riverctl set-layout-value kile string set_tag 'focused|{h:vv}'">
+        <button class="layout" onclick="riverctl set-layout-value kile string set_tag 'focused|{h:v,v}'">
           <image height="45" path="/home/bryan/Pictures/layouts/horizontal.svg"></image>
         </button>
-        <button class="layout" onclick="riverctl set-layout-value kile string set_tag 'focused|{d:ht{v:hh}}||0.7|1'">
+        <button class="layout" onclick="riverctl set-layout-value kile string set_tag 'focused|{d:h,t{v:h,h}}||0.7|1'">
           <image height="45" path="/home/bryan/Pictures/layouts/dwindle.svg"></image>
         </button>
-        <button class="layout" onclick="riverctl set-layout-value kile string set_tag 'focused|{v:th}||0.6|1'">
+        <button class="layout" onclick="riverctl set-layout-value kile string set_tag 'focused|{v:t,h}||0.6|1'">
           <image height="45" path="/home/bryan/Pictures/layouts/tab.svg"></image>
         </button>
         <button 

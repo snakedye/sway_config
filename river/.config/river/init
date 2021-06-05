@@ -71,15 +71,37 @@ riverctl declare-mode testing
 # it the new master
 riverctl map normal $mod+Shift Return zoom
 
+# Formats layouts in a single line
+inline () {
+  echo $@ | tr -d '\r\n' | sed 's/ //g'
+}
+
 # Nested layout (example)
-NESTED="focused|{\
-    vertical:\
-    horizontal,\
-    (\
-      {horizontal:tab,vertical};\
-      1;0.65;0\
-    ),\
+NESTED="focused|
+  {
+    vertical:
+    horizontal,
+    (
+      {horizontal:tab,vertical};
+      1;0.65;0
+    )
 }|3|0.7|1"
+TAB="focused|
+  {vertical:
+    horizontal,
+    (
+      {horizontal:tab,tab};
+      1;0.65;0
+    )
+}|1|0.65|0"
+RTAB="focused|
+  {vertical:
+    (
+      {horizontal:tab,tab};
+      1;0.65;0
+    ),
+    horizontal
+}|1|0.65|1"
 
 # Keybindings for kile
 for mode in "normal" "testing"
@@ -110,9 +132,10 @@ do
 
   # Custom layouts
   riverctl map "${mode}" $mod Y set-layout-value "${layout}" string layout "focused|{v:h,h}"
-  riverctl map "${mode}" $mod T set-layout-value "${layout}" string layout "focused|{v:t,h}"
-  riverctl map "${mode}" $mod D set-layout-value "${layout}" string layout "${NESTED// }"
   riverctl map "${mode}" $mod U set-layout-value "${layout}" string layout "focused|{v:h,t,h}"
+  riverctl map "${mode}" $mod+Shift T set-layout-value "${layout}" string layout "$(inline $RTAB)"
+  riverctl map "${mode}" $mod T set-layout-value "${layout}" string layout "$(inline $TAB)"
+  riverctl map "${mode}" $mod D set-layout-value "${layout}" string layout "$(inline $NESTED)"
 done
 
 # Declaring scratchpads and their keybinds
@@ -255,10 +278,12 @@ do
   riverctl set-layout-value kile int outer_padding 5
   case $output in
     DP-2)
-      riverctl set-layout-value kile string layout "all|{v:h,h}|||0 32|{v:h,t,h}|1|0.5|1"
+      riverctl set-layout-value kile string layout "$(inline ${TAB/focused/all})"
+      riverctl set-layout-value kile string layout "32|{v:h,{h:t,t}}|1||0"
       ;;
     HDMI-A-1)
-      riverctl set-layout-value kile string layout "all|{v:h,h}|||1 32|{v:h,t,h}|1|0.7|1"
+      riverctl set-layout-value kile string layout "$(inline ${RTAB/focused/all})"
+      riverctl set-layout-value kile string layout "32|{v:h,{h:t,t}}|1||0"
       ;;
   esac
   riverctl attach-mode bottom
