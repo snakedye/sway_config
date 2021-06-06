@@ -2,7 +2,7 @@ font=CascadiaMono 09
 
 layer=overlay
 anchor=top-right
-background-color=#3a3a3a
+background-color=#302f2f
 text-color=#dcbb8c
 width=360
 height=150

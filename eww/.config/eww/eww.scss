@@ -17,7 +17,6 @@ window {
 	color: #b8b8ac;
   font-family: CascadiaCode;
 }
-
 trough {
   all: unset;
   background-color: #3a3a3a;
@@ -29,14 +28,12 @@ trough progress, highlight {
   border-radius: 50px;
   background-color: #dcbb8c;
 }
-
 .seperator trough  {
   all: unset;
   min-height: 1px;
   margin: 0px 15px 0px 15px;
   background-color: #474747;
 }
-
 .calendar {
   padding:10px;
 }
@@ -44,23 +41,19 @@ calendar {
   all: unset;
   padding:10px;
 }
-
 expander {
   all: unset;
   color: transparent;
 }
-
 calendar:selected {
 	color: #dcbb8c;
 }
-
 .widget {
 	background-color: #302f2f;
   border-radius: 10px;
   padding: 25px 0px 25px 0px;
   margin: 5px;
 }
-
 .profile {
   background-image: url('/home/bryan/Pictures/Fire_Punch/4.jpg');
   background-position: top center;
@@ -209,7 +202,6 @@ calendar:selected {
   border-radius: 10px;
   color:#6f6f6f;
   padding: 10px;
-  // border: 2px solid #414141;
 }
 .power:hover {
 	color: #8d987e;

@@ -9,7 +9,8 @@ riverctl spawn '/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1'
 riverctl spawn 'mpd ~/.config/mpd/mpd.conf'
 riverctl spawn '/usr/lib/xdg-desktop-portal-wlr'
 riverctl spawn 'mpDris2'
-riverctl spawn 'swayidle -w timeout 1080 "swaylock -f" after-resume "swaylock -f"'
+# riverctl spawn 'swayidle -w timeout 1080 "swaylock -f" after-resume "swaylock -f"'
+riverctl spawn '~/.local/bin/midle -c 1080 swaylock'
 
 # Wallpaper
 riverctl spawn "swaybg -o '*' -i '/home/bryan/wallpapers/ghost.png' -m tile"
@@ -77,23 +78,26 @@ inline () {
 }
 
 # Nested layouts (example)
-STACK="focused|
+STACK=$("focused|
   {vertical:
     (
-      {horizontal:tab,vertical};
+      {horizontal:full,vertical};
       1;0.65;0
     ),
     horizontal
-}|1|0.65|0"
-RSTACK="focused|
+}|1|0.65|0")
+RSTACK=$(inline "focused|
   {
     vertical:
-    horizontal,
     (
-      {horizontal:tab,vertical};
+      {horizontal:full,vertical};
+      1;0.68;0
+    ),
+    (
+      {horizontal:full,vertical};
       1;0.65;0
     )
-}|1|0.65|1"
+}|1|0.65|1")
 TAB=$(inline "focused|
   {vertical:
     horizontal,
@@ -101,7 +105,7 @@ TAB=$(inline "focused|
       {horizontal:tab,deck};
       1;0.65;0
     )
-  }|1|0.65|0")
+}|1|0.65|0")
 RTAB=$(inline "focused|
   {vertical:
     (
@@ -109,7 +113,7 @@ RTAB=$(inline "focused|
       1;0.65;0
     ),
     horizontal
-  }|1|0.65|1")
+}|1|0.65|1")
 
 # Keybindings for kile
 for mode in "normal" "testing"
