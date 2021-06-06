@@ -24,40 +24,40 @@
     </def>
     <def name="workspaces1">
       <box class="tags" spacing="10" space-evenly="false" halign="center">
-        <button class="{{if (ristate.tag1) =~ '(^1 | 1 |^1$| 1$)' then 'active' else if (ristate.views_tag1) =~ '(^1 |^1$| 1 | 1$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 1">I</button>
-        <button class="{{if (ristate.tag1) =~ '(^2 | 2 |^2$| 2$)' then 'active' else if (ristate.views_tag1) =~ '(^2 |^2$| 2 | 2$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 2">II</button>
-        <button class="{{if (ristate.tag1) =~ '(^3 | 3 |^3$| 3$)' then 'active' else if (ristate.views_tag1) =~ '(^3 |^3$| 3 | 3$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 3">III</button>
-        <button class="{{if (ristate.tag1) =~ '(^4 | 4 |^4$| 4$)' then 'active' else if (ristate.views_tag1) =~ '(^4 |^4$| 4 | 4$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 4">IV</button>
-        <button class="{{if (ristate.tag1) =~ '(^5 | 5 |^5$| 5$)' then 'active' else if (ristate.views_tag1) =~ '(^5 |^5$| 5 | 5$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 5">V</button>
-        <button class="{{if (ristate.tag1) =~ '(^6 | 6 |^6$| 5$)' then 'active' else if (ristate.views_tag1) =~ '(^6 |^6$| 6 | 6$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 6">VI</button>
-        <button class="{{if (ristate.tag1) =~ '(^7 | 7 |^7$| 6$)' then 'active' else if (ristate.views_tag1) =~ '(^7 |^7$| 7 | 7$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 7">VII</button>
-        <button class="{{if (ristate.tag1) =~ '(^8 | 8 |^8$| 8$)' then 'active' else if (ristate.views_tag1) =~ '(^8 |^8$| 8 | 8$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 8">VIII</button>
-        <button class="{{if (ristate.tag1) =~ '(^9 | 9 |^9$| 9$)' then 'active' else if (ristate.views_tag1) =~ '(^9 |^9$| 9 | 9$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 9">IX</button>
-        <button class="{{if (ristate.tag1) =~ '(^22 | 22 |^22$| 22$)' then 'active' else if (ristate.views_tag1) =~ '(^22 |^22$| 22 | 22$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 22">B</button>
-        <button class="{{if (ristate.tag1) =~ '(^21 | 21 |^21$| 21$)' then 'active' else if (ristate.views_tag1) =~ '(^21 |^21$| 21 | 21$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 21">N</button>
-        <button class="{{if (ristate.tag1) =~ '(^20 | 20 |^20$| 20$)' then 'active' else if (ristate.views_tag1) =~ '(^20 |^20$| 20 | 20$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 20">M</button>
+        <button class="{{if (ristate.tag1) =~ '(^1 | 1 |^1$| 1$)' then 'active' else if (ristate.views_tag1) =~ '(^1 |^1$| 1 | 1$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 1 1">I</button>
+        <button class="{{if (ristate.tag1) =~ '(^2 | 2 |^2$| 2$)' then 'active' else if (ristate.views_tag1) =~ '(^2 |^2$| 2 | 2$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 2 1">II</button>
+        <button class="{{if (ristate.tag1) =~ '(^3 | 3 |^3$| 3$)' then 'active' else if (ristate.views_tag1) =~ '(^3 |^3$| 3 | 3$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 3 1">III</button>
+        <button class="{{if (ristate.tag1) =~ '(^4 | 4 |^4$| 4$)' then 'active' else if (ristate.views_tag1) =~ '(^4 |^4$| 4 | 4$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 4 1">IV</button>
+        <button class="{{if (ristate.tag1) =~ '(^5 | 5 |^5$| 5$)' then 'active' else if (ristate.views_tag1) =~ '(^5 |^5$| 5 | 5$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 5 1">V</button>
+        <button class="{{if (ristate.tag1) =~ '(^6 | 6 |^6$| 5$)' then 'active' else if (ristate.views_tag1) =~ '(^6 |^6$| 6 | 6$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 6 1">VI</button>
+        <button class="{{if (ristate.tag1) =~ '(^7 | 7 |^7$| 6$)' then 'active' else if (ristate.views_tag1) =~ '(^7 |^7$| 7 | 7$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 7 1">VII</button>
+        <button class="{{if (ristate.tag1) =~ '(^8 | 8 |^8$| 8$)' then 'active' else if (ristate.views_tag1) =~ '(^8 |^8$| 8 | 8$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 8 1">VIII</button>
+        <button class="{{if (ristate.tag1) =~ '(^9 | 9 |^9$| 9$)' then 'active' else if (ristate.views_tag1) =~ '(^9 |^9$| 9 | 9$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 9 1">IX</button>
+        <button class="{{if (ristate.tag1) =~ '(^22 | 22 |^22$| 22$)' then 'active' else if (ristate.views_tag1) =~ '(^22 |^22$| 22 | 22$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 22 1">B</button>
+        <button class="{{if (ristate.tag1) =~ '(^21 | 21 |^21$| 21$)' then 'active' else if (ristate.views_tag1) =~ '(^21 |^21$| 21 | 21$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 21 1">N</button>
+        <button class="{{if (ristate.tag1) =~ '(^20 | 20 |^20$| 20$)' then 'active' else if (ristate.views_tag1) =~ '(^20 |^20$| 20 | 20$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 20 1">M</button>
       </box>
     </def>
     <def name="workspaces0">
       <box class="tags" spacing="10" space-evenly="false" halign="center">
-        <button class="{{if (ristate.tag0) =~ '(^1 | 1 |^1$| 1$)' then 'active'  else if (ristate.views_tag0) =~ '(^1 |^1$| 1 | 1$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 1">I</button>
-        <button class="{{if (ristate.tag0) =~ '(^2 | 2 |^2$| 2$)' then 'active'  else if (ristate.views_tag0) =~ '(^2 |^2$| 2 | 2$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 2">II</button>
-        <button class="{{if (ristate.tag0) =~ '(^3 | 3 |^3$| 3$)' then 'active'  else if (ristate.views_tag0) =~ '(^3 |^3$| 3 | 3$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 3">III</button>
-        <button class="{{if (ristate.tag0) =~ '(^4 | 4 |^4$| 4$)' then 'active'  else if (ristate.views_tag0) =~ '(^4 |^4$| 4 | 4$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 4">IV</button>
-        <button class="{{if (ristate.tag0) =~ '(^5 | 5 |^5$| 5$)' then 'active'  else if (ristate.views_tag0) =~ '(^5 |^5$| 5 | 5$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 5">V</button>
-        <button class="{{if (ristate.tag0) =~ '(^6 | 6 |^6$| 6$)' then 'active'  else if (ristate.views_tag0) =~ '(^6 |^6$| 6 | 6$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 6">VI</button>
-        <button class="{{if (ristate.tag0) =~ '(^7 | 7 |^7$| 7$)' then 'active'  else if (ristate.views_tag0) =~ '(^7 |^7$| 7 | 7$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 7">VII</button>
-        <button class="{{if (ristate.tag0) =~ '(^8 | 8 |^8$| 8$)' then 'active'  else if (ristate.views_tag0) =~ '(^8 |^8$| 8 | 8$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 8">VIII</button>
-        <button class="{{if (ristate.tag0) =~ '(^9 | 9 |^9$| 9$)' then 'active'  else if (ristate.views_tag0) =~ '(^9 |^9$| 9 | 9$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 9">IX</button>
-        <button class="{{if (ristate.tag0) =~ '(^22 | 22 |^22$| 22$)' then 'active' else if (ristate.views_tag0) =~ '(^22 |^22$| 22 | 22$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 22">B</button>
-        <button class="{{if (ristate.tag0) =~ '(^21 | 21 |^21$| 21$)' then 'active' else if (ristate.views_tag0) =~ '(^21 |^21$| 21 | 21$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 21">N</button>
-        <button class="{{if (ristate.tag0) =~ '(^20 | 20 |^20$| 20$)' then 'active' else if (ristate.views_tag0) =~ '(^20 |^20$| 20 | 20$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 20">M</button>
+        <button class="{{if (ristate.tag0) =~ '(^1 | 1 |^1$| 1$)' then 'active'  else if (ristate.views_tag0) =~ '(^1 |^1$| 1 | 1$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 1 0">I</button>
+        <button class="{{if (ristate.tag0) =~ '(^2 | 2 |^2$| 2$)' then 'active'  else if (ristate.views_tag0) =~ '(^2 |^2$| 2 | 2$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 2 0">II</button>
+        <button class="{{if (ristate.tag0) =~ '(^3 | 3 |^3$| 3$)' then 'active'  else if (ristate.views_tag0) =~ '(^3 |^3$| 3 | 3$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 3 0">III</button>
+        <button class="{{if (ristate.tag0) =~ '(^4 | 4 |^4$| 4$)' then 'active'  else if (ristate.views_tag0) =~ '(^4 |^4$| 4 | 4$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 4 0">IV</button>
+        <button class="{{if (ristate.tag0) =~ '(^5 | 5 |^5$| 5$)' then 'active'  else if (ristate.views_tag0) =~ '(^5 |^5$| 5 | 5$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 5 0">V</button>
+        <button class="{{if (ristate.tag0) =~ '(^6 | 6 |^6$| 6$)' then 'active'  else if (ristate.views_tag0) =~ '(^6 |^6$| 6 | 6$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 6 0">VI</button>
+        <button class="{{if (ristate.tag0) =~ '(^7 | 7 |^7$| 7$)' then 'active'  else if (ristate.views_tag0) =~ '(^7 |^7$| 7 | 7$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 7 0">VII</button>
+        <button class="{{if (ristate.tag0) =~ '(^8 | 8 |^8$| 8$)' then 'active'  else if (ristate.views_tag0) =~ '(^8 |^8$| 8 | 8$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 8 0">VIII</button>
+        <button class="{{if (ristate.tag0) =~ '(^9 | 9 |^9$| 9$)' then 'active'  else if (ristate.views_tag0) =~ '(^9 |^9$| 9 | 9$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 9 0">IX</button>
+        <button class="{{if (ristate.tag0) =~ '(^22 | 22 |^22$| 22$)' then 'active' else if (ristate.views_tag0) =~ '(^22 |^22$| 22 | 22$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 22 0">B</button>
+        <button class="{{if (ristate.tag0) =~ '(^21 | 21 |^21$| 21$)' then 'active' else if (ristate.views_tag0) =~ '(^21 |^21$| 21 | 21$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 21 0">N</button>
+        <button class="{{if (ristate.tag0) =~ '(^20 | 20 |^20$| 20$)' then 'active' else if (ristate.views_tag0) =~ '(^20 |^20$| 20 | 20$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 20 0">M</button>
       </box>
     </def>
     <def name="volume">
       <box style="font-size: 14px" class="volume" orientation="h" space-evenly="false" spacing="15" halign="end">
         <volume_icon/>
-        <scale width="200" min="0" max="130" valign="center" value="{{volume}}" onchange="pamixer --set-volume $(fish -c 'math -s0 {}')"/>
+        <scale width="200" min="0" max="100" valign="center" value="{{volume}}" onscroll="~/.config/eww/scripts/volume {}"/>
       </box>
     </def>
     <def name="tray">

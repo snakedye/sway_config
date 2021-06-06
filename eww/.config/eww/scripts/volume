@@ -16,11 +16,18 @@ hide() {
 
 show
 
-# if [[ -n $1 ]]; then
-#   volume=$(echo $1 | awk '{print ($0-int($0)<0.499)?int($0):int($0)+1}')
-#   pamixer --set-volume $volume
-#   echo $volume >> /tmp/ewwpipe
-#   show
-# else
-#   pamixer --get-volume >> /tmp/ewwpipe
-# fi
+case $1 in
+  up)
+    pamixer -i 5
+    pamixer --get-volume >> /tmp/ewwpipe
+    ;;
+  down)
+    pamixer -d 5
+    pamixer --get-volume >> /tmp/ewwpipe
+    ;;
+  *)
+    pamixer --get-volume >> /tmp/ewwpipe
+    ;;
+esac
+
+show

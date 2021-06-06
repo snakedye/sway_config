@@ -1,7 +1,7 @@
 #!/bin/sh
 
 if [ -z $SWAYSOCK ]; then
-  riverctl set-focused-tags $((1 << ($@ - 1)))
+  riverctl set-focused-tags $((1 << ($1 - 1)))
 else
   swaymsg workspace $@
 fi

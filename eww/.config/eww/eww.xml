@@ -35,8 +35,8 @@ contain are defined. -->
         <bar0/> <!--This is the def we created earlier-->
       </widget>
     </window>
-    <window name="volume-indicator" stacking="ov">
-      <geometry anchor="bottom center" x="0" y="15" width="250" height="15"/> <!--Specifies geometry-->
+    <window name="volume-indicator" stacking="fg">
+      <geometry anchor="top center" x="0" y="15" width="250" height="15"/> <!--Specifies geometry-->
       <widget>
         <indicator/> <!--This is the def we created earlier-->
       </widget>

@@ -73,7 +73,7 @@
     <def name="volume_slider">
       <box class="indicator" orientation="h" space-evenly="false" spacing="25" halign="center">
         <volume_icon/>
-        <scale width="250" valign="center" min="0" max="100" value="{{volume}}" onchange="~/.config/eww/scripts/volume {}"/>
+        <scale width="250" valign="center" min="0" max="100" value="{{volume}}" onscroll="~/.config/eww/scripts/volume {}"/>
       </box>
     </def>
 

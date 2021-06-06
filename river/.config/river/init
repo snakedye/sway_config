@@ -1,19 +1,22 @@
 #!/bin/sh
 
 # Autostart
-~/.local/bin/eww daemon
+# ~/.local/bin/eww daemon
 riverctl spawn 'kile'
-riverctl spawn '~/.local/bin/notification'
-riverctl spawn 'nm-applet --indicator'
-riverctl spawn '/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1'
-riverctl spawn 'mpd ~/.config/mpd/mpd.conf'
-riverctl spawn '/usr/lib/xdg-desktop-portal-wlr'
-riverctl spawn 'mpDris2'
-# riverctl spawn 'swayidle -w timeout 1080 "swaylock -f" after-resume "swaylock -f"'
-riverctl spawn '~/.local/bin/midle -c 1080 swaylock'
+# riverctl spawn '~/.local/bin/notification'
+# riverctl spawn 'nm-applet --indicator'
+# riverctl spawn '/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1'
+# riverctl spawn 'mpd ~/.config/mpd/mpd.conf'
+# riverctl spawn '/usr/lib/xdg-desktop-portal-wlr'
+# riverctl spawn 'mpDris2'
+# # riverctl spawn 'swayidle -w timeout 1080 "swaylock -f" after-resume "swaylock -f"'
+# riverctl spawn '~/.local/bin/midle -c 1080 swaylock'
+# if [ -e /tmp/ewwpipe ]; then
+#   mkfifo /tmp/ewwpipe
+# fi
 
 # Wallpaper
-riverctl spawn "swaybg -o '*' -i '/home/bryan/wallpapers/ghost.png' -m tile"
+# riverctl spawn "swaybg -o '*' -i '/home/bryan/wallpapers/ghost.png' -m tile"
 
 # Use the "logo" key as the primary modifier
 mod="Mod4"
@@ -78,41 +81,37 @@ inline () {
 }
 
 # Nested layouts (example)
-STACK=$("focused|
-  {vertical:
-    (
-      {horizontal:full,vertical};
-      1;0.65;0
-    ),
-    horizontal
+STACK=$(inline "{
+  vertical:
+  (
+    {horizontal:full,vertical};
+    1;0.65;0
+  ),
+  horizontal
 }|1|0.65|0")
-RSTACK=$(inline "focused|
-  {
-    vertical:
-    (
-      {horizontal:full,vertical};
-      1;0.68;0
-    ),
-    (
-      {horizontal:full,vertical};
-      1;0.65;0
-    )
+RSTACK=$(inline "{
+  vertical:
+  horizontal,
+  (
+    {horizontal:full,vertical};
+    1;0.68;0
+  )
 }|1|0.65|1")
-TAB=$(inline "focused|
-  {vertical:
-    horizontal,
-    (
-      {horizontal:tab,deck};
-      1;0.65;0
-    )
+TAB=$(inline "{
+  vertical:
+  horizontal,
+  (
+    {horizontal:tab,deck};
+    1;0.65;0
+  )
 }|1|0.65|0")
-RTAB=$(inline "focused|
-  {vertical:
-    (
-      {horizontal:tab,deck};
-      1;0.65;0
-    ),
-    horizontal
+RTAB=$(inline "{
+  vertical:
+  (
+    {horizontal:tab,deck};
+    1;0.65;0
+  ),
+  horizontal
 }|1|0.65|1")
 
 # Keybindings for kile
@@ -143,11 +142,11 @@ do
   riverctl map "${mode}" $mod+Mod1 K mod-layout-value "${layout}" int view_padding +5
 
   # Custom layouts
-  riverctl map "${mode}" $mod U set-layout-value "${layout}" string layout "focused|{v:h,t,h}"
-  riverctl map "${mode}" $mod+Shift Y set-layout-value "${layout}" string layout "$RSTACK"
-  riverctl map "${mode}" $mod Y set-layout-value "${layout}" string layout "$STACK"
-  riverctl map "${mode}" $mod+Shift D set-layout-value "${layout}" string layout "$RTAB"
-  riverctl map "${mode}" $mod D set-layout-value "${layout}" string layout "$TAB"
+  riverctl map "${mode}" $mod U set-layout-value "${layout}" string focused "{v: h,t,h}|||1"
+  riverctl map "${mode}" $mod+Shift Y set-layout-value "${layout}" string focused "$RSTACK"
+  riverctl map "${mode}" $mod Y set-layout-value "${layout}" string focused "$STACK"
+  riverctl map "${mode}" $mod+Shift D set-layout-value "${layout}" string focused "$RTAB"
+  riverctl map "${mode}" $mod D set-layout-value "${layout}" string focused "$TAB"
 done
 
 # Declaring scratchpads and their keybinds
@@ -246,8 +245,8 @@ riverctl map normal $mod F10 enter-mode testing
 for mode in normal locked
 do
 	riverctl map "${mode}" None XF86Eject             spawn eject -T
-	riverctl map "${mode}" None XF86AudioRaiseVolume  spawn "pamixer -i 5"
-	riverctl map "${mode}" None XF86AudioLowerVolume  spawn "pamixer -d 5"
+	riverctl map "${mode}" None XF86AudioRaiseVolume  spawn ~/.local/bin/volume up
+	riverctl map "${mode}" None XF86AudioLowerVolume  spawn ~/.local/bin/volume down
 	riverctl map "${mode}" None XF86AudioMute         spawn ~/.config/eww/scripts/mute
 	riverctl map "${mode}" None XF86AudioMedia        spawn playerctl play-pause
 	riverctl map "${mode}" None XF86AudioPlay         spawn playerctl play-pause
@@ -290,12 +289,12 @@ do
   riverctl set-layout-value kile int outer_padding 5
   case $output in
     DP-2)
-      riverctl set-layout-value kile string layout "${STACK/focused/all}"
-      riverctl set-layout-value kile string layout "32|{v:h,{h:t,t}}|1||0"
+      riverctl set-layout-value kile string all "${STACK}"
+      riverctl set-layout-value kile string 32 "{v:h,{h:t,t}}|1||0"
       ;;
     HDMI-A-1)
-      riverctl set-layout-value kile string layout "${RTAB/focused/all}"
-      riverctl set-layout-value kile string layout "32|{v:h,{h:t,t}}|1||0"
+      riverctl set-layout-value kile string all "${RTAB}"
+      riverctl set-layout-value kile string 32 "{v:h,{h:t,t}}|1||0"
       ;;
   esac
   riverctl attach-mode bottom
@@ -304,4 +303,4 @@ done
 riverctl focus-output next
 
 # Launch eww bars
-sleep 5 && ~/.local/bin/eww open-many bar0 bar1
+# sleep 5 && ~/.local/bin/eww open-many bar0 bar1
