@@ -8,10 +8,10 @@ CLIENT=kile
 LAYOUT=$(inline "{
   vertical:
   (
-    {horizontal:full,ver};
+    {horizontal: full,ver};
     1;0.65;0
   ),
-  d1
-}|||0")
+  horizontal
+}|1||0")
 
-riverctl set-layout-value $CLIENT string layout "$LAYOUT"
+riverctl set-layout-value $CLIENT string focused "$LAYOUT"

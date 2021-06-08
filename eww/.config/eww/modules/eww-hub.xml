@@ -99,7 +99,7 @@
         <button class="layout" onclick="riverctl set-layout-value kile string set_tag 'focused|{h:v,v}'">
           <image height="45" path="/home/bryan/Pictures/layouts/horizontal.svg"></image>
         </button>
-        <button class="layout" onclick="~/.config/eww/scripts/layouts/dwindle">
+        <button class="layout" onclick="~/.config/eww/scripts/layouts/basic">
           <image height="45" path="/home/bryan/Pictures/layouts/dwindle.svg"></image>
         </button>
         <button 

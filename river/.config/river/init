@@ -1,22 +1,23 @@
 #!/bin/sh
 
 # Autostart
-# ~/.local/bin/eww daemon
+~/.local/bin/eww daemon
 riverctl spawn 'kile'
-# riverctl spawn '~/.local/bin/notification'
-# riverctl spawn 'nm-applet --indicator'
-# riverctl spawn '/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1'
-# riverctl spawn 'mpd ~/.config/mpd/mpd.conf'
-# riverctl spawn '/usr/lib/xdg-desktop-portal-wlr'
-# riverctl spawn 'mpDris2'
-# # riverctl spawn 'swayidle -w timeout 1080 "swaylock -f" after-resume "swaylock -f"'
-# riverctl spawn '~/.local/bin/midle -c 1080 swaylock'
-# if [ -e /tmp/ewwpipe ]; then
-#   mkfifo /tmp/ewwpipe
-# fi
+riverctl spawn '~/.local/bin/notification'
+riverctl spawn 'nm-applet --indicator'
+riverctl spawn '/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1'
+riverctl spawn 'mpd ~/.config/mpd/mpd.conf'
+riverctl spawn '/usr/lib/xdg-desktop-portal-wlr'
+riverctl spawn 'mpDris2'
+# riverctl spawn 'swayidle -w timeout 1080 "swaylock -f" after-resume "swaylock -f"'
+riverctl spawn '~/.local/bin/midle -c 300 swaylock'
+if [ -e /tmp/ewwpipe ]; then
+  mkfifo /tmp/ewwpipe
+fi
+pamixer --get-volume > /tmp/ewwpipe
 
 # Wallpaper
-# riverctl spawn "swaybg -o '*' -i '/home/bryan/wallpapers/ghost.png' -m tile"
+riverctl spawn "swaybg -o '*' -i '/home/bryan/wallpapers/ghost.png' -m tile"
 
 # Use the "logo" key as the primary modifier
 mod="Mod4"
@@ -81,38 +82,46 @@ inline () {
 }
 
 # Nested layouts (example)
-STACK=$(inline "{
+STACK=$(inline "(
+{
   vertical:
   (
-    {horizontal:full,vertical};
+    {horizontal: full, vertical};
     1;0.65;0
   ),
   horizontal
-}|1|0.65|0")
-RSTACK=$(inline "{
+};
+1;0.65;0)")
+RSTACK=$(inline "(
+{
   vertical:
   horizontal,
   (
-    {horizontal:full,vertical};
+    {horizontal: full, vertical};
     1;0.68;0
   )
-}|1|0.65|1")
-TAB=$(inline "{
+};
+1;0.65;1)")
+TAB=$(inline "(
+{
   vertical:
   horizontal,
   (
-    {horizontal:tab,deck};
+    {horizontal: tab, deck};
     1;0.65;0
   )
-}|1|0.65|0")
-RTAB=$(inline "{
+};
+1;0.65;0)")
+RTAB=$(inline "(
+{
   vertical:
   (
-    {horizontal:tab,deck};
+    {horizontal: tab, deck};
     1;0.65;0
   ),
   horizontal
-}|1|0.65|1")
+}
+;1;0.65;1")
 
 # Keybindings for kile
 for mode in "normal" "testing"
@@ -142,7 +151,7 @@ do
   riverctl map "${mode}" $mod+Mod1 K mod-layout-value "${layout}" int view_padding +5
 
   # Custom layouts
-  riverctl map "${mode}" $mod U set-layout-value "${layout}" string focused "{v: h,t,h}|||1"
+  riverctl map "${mode}" $mod U set-layout-value "${layout}" string focused "({v:h,t,h};1;0.55;1)"
   riverctl map "${mode}" $mod+Shift Y set-layout-value "${layout}" string focused "$RSTACK"
   riverctl map "${mode}" $mod Y set-layout-value "${layout}" string focused "$STACK"
   riverctl map "${mode}" $mod+Shift D set-layout-value "${layout}" string focused "$RTAB"
@@ -290,11 +299,11 @@ do
   case $output in
     DP-2)
       riverctl set-layout-value kile string all "${STACK}"
-      riverctl set-layout-value kile string 32 "{v:h,{h:t,t}}|1||0"
+      riverctl set-layout-value kile string 32 "{v:h,{h:t,t}}"
       ;;
     HDMI-A-1)
       riverctl set-layout-value kile string all "${RTAB}"
-      riverctl set-layout-value kile string 32 "{v:h,{h:t,t}}|1||0"
+      riverctl set-layout-value kile string 32 "{v:h,{h:t,t}}"
       ;;
   esac
   riverctl attach-mode bottom
@@ -303,4 +312,4 @@ done
 riverctl focus-output next
 
 # Launch eww bars
-# sleep 5 && ~/.local/bin/eww open-many bar0 bar1
+sleep 5 && ~/.local/bin/eww open-many bar0 bar1

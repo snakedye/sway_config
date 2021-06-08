@@ -7,11 +7,11 @@ inline () {
 CLIENT=kile
 LAYOUT=$(inline "{
   vertical:
-  horizontal,
+  (d1;1;0.6),
   (
-    {horizontal:full,deck};
+    {horizontal: full, deck};
     1;0.65;0
   )
-}|1||0")
+}|||1")
 
 riverctl set-layout-value $CLIENT string focused "$LAYOUT"
