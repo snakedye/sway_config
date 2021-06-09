@@ -3,14 +3,13 @@
 # Autostart
 ~/.local/bin/eww daemon
 riverctl spawn 'kile'
+riverctl spawn 'mpDris2'
 riverctl spawn '~/.local/bin/notification'
 riverctl spawn 'nm-applet --indicator'
 riverctl spawn '/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1'
 riverctl spawn 'mpd ~/.config/mpd/mpd.conf'
 riverctl spawn '/usr/lib/xdg-desktop-portal-wlr'
-riverctl spawn 'mpDris2'
-# riverctl spawn 'swayidle -w timeout 1080 "swaylock -f" after-resume "swaylock -f"'
-riverctl spawn '~/.local/bin/midle -c 300 swaylock'
+riverctl spawn 'swayidle -w timeout 1080 "swaylock -f" after-resume "swaylock -f"'
 if [ -e /tmp/ewwpipe ]; then
   mkfifo /tmp/ewwpipe
 fi
@@ -120,8 +119,8 @@ RTAB=$(inline "(
     1;0.65;0
   ),
   horizontal
-}
-;1;0.65;1")
+};
+1;0.65;1)")
 
 # Keybindings for kile
 for mode in "normal" "testing"
@@ -281,7 +280,7 @@ riverctl csd-filter-add "swappy"
 riverctl opacity 1.0 0.9 0.0 0.1 30
 
 # Border color focused
-riverctl border-color-focused '#7A675E'
+riverctl border-color-focused '#6c5b53'
 
 # Border color focused
 riverctl border-color-unfocused '#464646'

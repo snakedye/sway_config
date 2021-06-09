@@ -45,13 +45,13 @@
         <button class="{{if (ristate.tag0) =~ '(^3 | 3 |^3$| 3$)' then 'active'  else if (ristate.views_tag0) =~ '(^3 |^3$| 3 | 3$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 3 0">III</button>
         <button class="{{if (ristate.tag0) =~ '(^4 | 4 |^4$| 4$)' then 'active'  else if (ristate.views_tag0) =~ '(^4 |^4$| 4 | 4$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 4 0">IV</button>
         <button class="{{if (ristate.tag0) =~ '(^5 | 5 |^5$| 5$)' then 'active'  else if (ristate.views_tag0) =~ '(^5 |^5$| 5 | 5$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 5 0">V</button>
-        <button class="{{if (ristate.tag0) =~ '(^6 | 6 |^6$| 6$)' then 'active'  else if (ristate.views_tag0) =~ '(^6 |^6$| 6 | 6$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 6 0">VI</button>
-        <button class="{{if (ristate.tag0) =~ '(^7 | 7 |^7$| 7$)' then 'active'  else if (ristate.views_tag0) =~ '(^7 |^7$| 7 | 7$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 7 0">VII</button>
-        <button class="{{if (ristate.tag0) =~ '(^8 | 8 |^8$| 8$)' then 'active'  else if (ristate.views_tag0) =~ '(^8 |^8$| 8 | 8$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 8 0">VIII</button>
-        <button class="{{if (ristate.tag0) =~ '(^9 | 9 |^9$| 9$)' then 'active'  else if (ristate.views_tag0) =~ '(^9 |^9$| 9 | 9$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 9 0">IX</button>
-        <!-- <button class="{{if (ristate.tag0) =~ '(^22 | 22 |^22$| 22$)' then 'active' else if (ristate.views_tag0) =~ '(^22 |^22$| 22 | 22$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 22 0">B</button> -->
-        <!-- <button class="{{if (ristate.tag0) =~ '(^21 | 21 |^21$| 21$)' then 'active' else if (ristate.views_tag0) =~ '(^21 |^21$| 21 | 21$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 21 0">N</button> -->
-        <!-- <button class="{{if (ristate.tag0) =~ '(^20 | 20 |^20$| 20$)' then 'active' else if (ristate.views_tag0) =~ '(^20 |^20$| 20 | 20$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 20 0">M</button> -->
+        <!-- <button class="{{if (ristate.tag0) =~ '(^6 | 6 |^6$| 6$)' then 'active'  else if (ristate.views_tag0) =~ '(^6 |^6$| 6 | 6$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 6 0">VI</button> -->
+        <!-- <button class="{{if (ristate.tag0) =~ '(^7 | 7 |^7$| 7$)' then 'active'  else if (ristate.views_tag0) =~ '(^7 |^7$| 7 | 7$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 7 0">VII</button> -->
+        <!-- <button class="{{if (ristate.tag0) =~ '(^8 | 8 |^8$| 8$)' then 'active'  else if (ristate.views_tag0) =~ '(^8 |^8$| 8 | 8$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 8 0">VIII</button> -->
+        <!-- <button class="{{if (ristate.tag0) =~ '(^9 | 9 |^9$| 9$)' then 'active'  else if (ristate.views_tag0) =~ '(^9 |^9$| 9 | 9$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 9 0">IX</button> -->
+        <button class="{{if (ristate.tag0) =~ '(^22 | 22 |^22$| 22$)' then 'active' else if (ristate.views_tag0) =~ '(^22 |^22$| 22 | 22$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 22 0">B</button>
+        <button class="{{if (ristate.tag0) =~ '(^21 | 21 |^21$| 21$)' then 'active' else if (ristate.views_tag0) =~ '(^21 |^21$| 21 | 21$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 21 0">N</button>
+        <button class="{{if (ristate.tag0) =~ '(^20 | 20 |^20$| 20$)' then 'active' else if (ristate.views_tag0) =~ '(^20 |^20$| 20 | 20$)' then 'occupied' else 'inactive'}}" onclick="~/.config/eww/scripts/workspaces 20 0">M</button>
       </box>
     </def>
     <def name="volume">
@@ -94,7 +94,7 @@
       <box class="link" orientation="h" space-evenly="true" spacing="25" halign="fill">
         <button style="color: #dcbb8c" onclick="xdg-open https://github.com/"></button>
         <button style="color: #d59877" onclick="xdg-open https://www.reddit.com/"></button>
-        <button style="color: #6F8798" onclick="firefox https://discord.com/channels/@me"></button>
+        <button style="color: #6F8798" onclick="firefox --new-window https://discord.com/channels/@me"></button>
         <button style="color: #cb7073" onclick="xdg-open https://www.youtube.com/">輸</button>
       </box>
     </def>
