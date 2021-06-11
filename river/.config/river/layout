@@ -1,0 +1,68 @@
+#!/bin/sh
+
+# Nested layouts (examples)
+
+# Looks like the ordinary master and stack layout when mai_count is one
+# but when increased, the additional windows in the main area will be aligned
+# below the main window.
+read -r -d '' TAB << EOM
+(
+  {
+    vertical:
+    (
+      {horizontal: full, vertical};
+      1;0.65;0
+    ),
+    horizontal
+  };
+  1;0.65;0
+)
+EOM
+
+# Like of TAB except the main and slave areas are inverted
+read -r -d '' RTAB << EOM
+(
+  {
+    vertical:
+    horizontal,
+    (
+      {horizontal: full, vertical};
+      1;0.68;0
+    )
+  };
+  1;0.65;1
+)
+EOM
+
+# Split the output area vertically into 2 layout areas.
+# The main area has a count of one and a horizontal layout.
+# The slave area top area is slightly large and windows below are stacked on
+# top of each others like a deck of cards
+read -r -d '' STACK << EOM
+(
+  {
+    vertical:
+    horizontal,
+    (
+      {horizontal: full, deck};
+      1;0.65;0
+    )
+  };
+  1;0.65;0
+)
+EOM
+
+# Like of STACK except the main and slave areas are inverted
+read -r -d '' RSTACK << EOM
+(
+  {
+    vertical:
+    (
+      {horizontal: full, deck};
+      1;0.65;0
+    ),
+    horizontal
+  };
+  1;0.65;1
+)
+EOM

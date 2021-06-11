@@ -112,7 +112,7 @@
         <button
           class="layout"
           style="font-size: 32px;"
-          onclick="riverctl set-layout-value kile string clear_tag focused">
+          onclick="riverctl set-layout-value kile string clear focused">
           
         </button>
       </box>

@@ -94,7 +94,7 @@
       <box class="link" orientation="h" space-evenly="true" spacing="25" halign="fill">
         <button style="color: #dcbb8c" onclick="xdg-open https://github.com/"></button>
         <button style="color: #d59877" onclick="xdg-open https://www.reddit.com/"></button>
-        <button style="color: #6F8798" onclick="firefox --new-window https://discord.com/channels/@me"></button>
+        <button style="color: #6F8798" onclick="chromium --app=https://fluffychat.im/web"></button>
         <button style="color: #cb7073" onclick="xdg-open https://www.youtube.com/">輸</button>
       </box>
     </def>
