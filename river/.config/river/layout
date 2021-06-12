@@ -2,16 +2,77 @@
 
 # Nested layouts (examples)
 
-# Looks like the ordinary master and stack layout when mai_count is one
-# but when increased, the additional windows in the main area will be aligned
-# below the main window.
-read -r -d '' TAB << EOM
+# The classic centered master layout
+# https://media.discordapp.net/attachments/769673106842845194/780095998239834142/unknown.png
+# Bran - BlingCorp
+read -r -d '' CENTERED << EOM
+(
+  {
+    ver: hor, hor, hor
+  };
+  1;0.65;1
+)
+EOM
+
+# A partial implementation of the dwindle layout
+# After 3 splits windows are stacked
+read -r -d '' DWINDLE << EOM
+(
+  {
+    ver:
+    hor, (
+      { hor: full, (
+          { ver: full, deck };
+          1;0.5
+        )
+      };
+      1;0.6
+    )
+  };
+  1;0.55
+)
+EOM
+
+# Horizontal split layout with stacking on the last area
+read -r -d '' HORIZONTAL << EOM
+(
+  {
+    horizontal:
+    (
+      { ver: full, deck };
+      1; 0.6
+    ),
+    (
+      { ver: full, deck };
+      1; 0.5
+    )
+  };
+  1
+)
+EOM
+
+# A layout meant for grouping a shit ton of windows
+read -r -d '' GROUP << EOM
+(
+  {
+    vertical:
+    $HORIZONTAL,
+    { hor: full, full }
+  };
+  1
+)
+EOM
+
+# Looks like the ordinary master and stack layout when main_count is one
+# but when increased, the additional windows in the main area will be 
+# vertically aligned below the main window.
+read -r -d '' STACK << EOM
 (
   {
     vertical:
     (
       {horizontal: full, vertical};
-      1;0.65;0
+      1;0.6;0
     ),
     horizontal
   };
@@ -19,26 +80,27 @@ read -r -d '' TAB << EOM
 )
 EOM
 
-# Like of TAB except the main and slave areas are inverted
-read -r -d '' RTAB << EOM
+# Like STACK except the main and slave areas are inverted
+read -r -d '' RSTACK << EOM
 (
   {
     vertical:
     horizontal,
     (
       {horizontal: full, vertical};
-      1;0.68;0
+      1;0.60;0
     )
   };
   1;0.65;1
 )
 EOM
 
-# Split the output area vertically into 2 layout areas.
+# Splits the output area vertically in 2 areas.
 # The main area has a count of one and a horizontal layout.
-# The slave area top area is slightly large and windows below are stacked on
-# top of each others like a deck of cards
-read -r -d '' STACK << EOM
+# Below the the top window in the slave area windows are stacked on
+# top of each others like a deck of cards.
+# Inspired by Stacktile - https://git.sr.ht/~leon_plickat/stacktile
+read -r -d '' DECK << EOM
 (
   {
     vertical:
@@ -52,8 +114,8 @@ read -r -d '' STACK << EOM
 )
 EOM
 
-# Like of STACK except the main and slave areas are inverted
-read -r -d '' RSTACK << EOM
+# Like DECK except the main and slave areas are inverted
+read -r -d '' RDECK << EOM
 (
   {
     vertical:

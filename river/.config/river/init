@@ -112,11 +112,12 @@ do
   riverctl map "${mode}" $mod+Mod1 K mod-layout-value "${layout}" int view_padding +5
 
   # Custom layouts
-  riverctl map "${mode}" $mod U set-layout-value "${layout}" string focused "({v:h,t,h};1;0.55;1)"
-  riverctl map "${mode}" $mod+Shift Y set-layout-value "${layout}" string focused "$RSTACK"
+  riverctl map "${mode}" $mod U set-layout-value "${layout}" string focused "$CENTERED"
+  riverctl map "${mode}" $mod T set-layout-value "${layout}" string focused "$DECK"
   riverctl map "${mode}" $mod Y set-layout-value "${layout}" string focused "$STACK"
-  riverctl map "${mode}" $mod+Shift D set-layout-value "${layout}" string focused "$RTAB"
-  riverctl map "${mode}" $mod D set-layout-value "${layout}" string focused "$TAB"
+  riverctl map "${mode}" $mod D set-layout-value "${layout}" string focused "$DWINDLE"
+  riverctl map "${mode}" $mod+Shift Y set-layout-value "${layout}" string focused "$RSTACK"
+  riverctl map "${mode}" $mod+Shift T set-layout-value "${layout}" string focused "$RDECK"
 done
 
 # Declaring scratchpads and their keybinds
@@ -259,12 +260,12 @@ do
   riverctl set-layout-value kile int outer_padding 5
   case $output in
     DP-2)
-      riverctl set-layout-value kile string all "${STACK}"
-      riverctl set-layout-value kile string 32 "{v:h,{h:t,t}}"
+      riverctl set-layout-value kile string all "$STACK"
+      riverctl set-layout-value kile string 32 "$GROUP"
       ;;
     HDMI-A-1)
-      riverctl set-layout-value kile string all "${RTAB}"
-      riverctl set-layout-value kile string 32 "{v:h,{h:t,t}}"
+      riverctl set-layout-value kile string all "$RDECK"
+      riverctl set-layout-value kile string 32 "$GROUP"
       ;;
   esac
   riverctl attach-mode bottom
