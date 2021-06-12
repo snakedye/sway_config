@@ -12,7 +12,7 @@ contain are defined. -->
 
   <windows>
     <window name="hub" stacking="fg">
-      <geometry anchor="center right" x="0" y="0" width="25%" height="85%"/> <!--Specifies geometry-->
+      <geometry anchor="center right" x="0" y="0" width="25%" height="80%"/> <!--Specifies geometry-->
       <widget>
         <hub/> <!--This is the def we created earlier-->
       </widget>

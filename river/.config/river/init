@@ -45,6 +45,9 @@ riverctl map normal $mod+Shift E exit
 # Mod+C for wofi-emoji
 riverctl map normal $mod C spawn ~/.local/bin/wofi-emoji
 
+# Mod+P for the layout switcher
+riverctl map normal $mod P spawn ~/.local/bin/layout
+
 # Mod+J and Mod+K to focus the next/previous view in the layout stack
 riverctl map normal $mod J focus-view next
 riverctl map normal $mod K focus-view previous
