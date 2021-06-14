@@ -81,12 +81,6 @@ riverctl declare-mode testing
 # it the new master
 riverctl map normal $mod+Shift Return zoom
 
-# Formats layouts in a single line
-inline () {
-  echo $@ | tr -d '\r\n' | sed 's/ //g'
-}
-
-
 # Keybindings for kile
 for mode in "normal" "testing"
 do

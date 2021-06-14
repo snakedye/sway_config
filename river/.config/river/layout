@@ -5,11 +5,10 @@
 # Horizontal split layout with stacking on the last area
 read -r -d '' HORIZONTAL << EOM
 (
-  {
-    hor:
+  { hor:
     (
       { ver: full deck }
-      1 0.6
+      1 0.63
     ) 
     (
       { ver: full deck }

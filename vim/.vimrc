@@ -130,7 +130,7 @@ endfunction
 
 autocmd! User GoyoEnter call <SID>goyo_enter()
 autocmd! User GoyoLeave call <SID>goyo_leave()
-autocmd VimEnter * Goyo
+" autocmd VimEnter * Goyo
 
 " Massive CoC
 let g:coc_global_extensions = [ 'coc-rls', 'coc-stylelintplus', 'coc-xml' ]
