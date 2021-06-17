@@ -6,15 +6,12 @@
 read -r -d '' HORIZONTAL << EOM
 (
   { hor:
-    (
-      { ver: full deck }
-      1 0.63
-    ) 
+    ver
     (
       { ver: full deck }
       1 0.5
     )
-  } 1
+  } 1 0.63
 )
 EOM
 
@@ -33,16 +30,7 @@ EOM
 # After 3 splits windows are stacked
 read -r -d '' DWINDLE << EOM
 (
-  { ver:
-    $HORIZONTAL (
-      { hor: 
-        full
-        (
-          { ver: full deck } 
-          1 0.5
-        )
-      } 1 0.6
-    )
+  { ver: hor $HORIZONTAL
   } 1 0.55
 )
 EOM

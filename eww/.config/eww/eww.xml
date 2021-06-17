@@ -12,7 +12,7 @@ contain are defined. -->
 
   <windows>
     <window name="hub" stacking="fg">
-      <geometry anchor="center right" x="0" y="0" width="25%" height="80%"/> <!--Specifies geometry-->
+      <geometry anchor="bottom center" x="0" y="0" width="45%" height="20%"/> <!--Specifies geometry-->
       <widget>
         <hub/> <!--This is the def we created earlier-->
       </widget>
@@ -33,6 +33,12 @@ contain are defined. -->
       <geometry anchor="top center" x="0" y="0" width="100%" height="40"/> <!--Specifies geometry-->
       <widget>
         <bar0/> <!--This is the def we created earlier-->
+      </widget>
+    </window>
+    <window name="power" stacking="fg" exclusive="false">
+      <geometry anchor="top center" x="0" y="10" width="250" height="80"/> <!--Specifies geometry-->
+      <widget>
+        <lock/> <!--This is the def we created earlier-->
       </widget>
     </window>
     <window name="volume-indicator" stacking="fg">

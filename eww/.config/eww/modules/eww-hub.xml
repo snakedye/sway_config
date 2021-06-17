@@ -1,14 +1,10 @@
 <eww>
   <definitions>
     <def name="hub">
-      <box orientation="v" space-evenly="false" spacing="5" class="hub">
-        <locale/>
-        <box space-evenly="false" class="widget" orientation="v">
+      <box orientation="h" space-evenly="false" spacing="5" class="hub">
+          <locale/>
           <media/>
-        </box>
-        <status/>
-        <control/>
-        <lock/>
+          <status/>
       </box>
     </def>
 
@@ -25,7 +21,7 @@
     </def>
 
     <def name="media">
-      <box halign="center" spacing="20" orientation="h" space-evenly="false">
+      <box halign="center" class="widget" spacing="20" orientation="h" space-evenly="false">
         <!-- <image style="border: 2px solid #414141" halign="center" width="110" path="/home/bryan/.cache/ncmpcpp/{{album}}.png"/> -->
         <box spacing="10" orientation="v" halign="center" space-evenly="true" class="media-cluster">
           <label style="font-size: 1em" limit-width="50" text="{{mpris.text}}"></label>
@@ -39,15 +35,15 @@
       <box orientation="v" spacing="15" valign="fill" class="widget">
         <box class="status" orientation="h" space-evenly="false" spacing="25" halign="center">
           <label text=""></label>
-          <scale width="300" class="ram" active="false" max="16" value="{{EWW_RAM}}"/>
+          <scale width="250" class="ram" active="false" max="16" value="{{EWW_RAM}}"/>
         </box>
         <box class="status" orientation="h" space-evenly="false" spacing="25" halign="center">
           <label text=""></label>
-          <scale width="300" class="gpu" active="false" max="101" value="{{EWW_TEMPS.TDIE}}"/>
+          <scale width="250" class="gpu" active="false" max="101" value="{{EWW_TEMPS.TDIE}}"/>
         </box>
         <box class="status" orientation="h" space-evenly="false" spacing="25" halign="center">
           <label text=""></label>
-          <scale width="300" class="cpu" active="false" max="60" value="{{EWW_CPU_USAGE.avg}}"/>
+          <scale width="250" class="cpu" active="false" max="60" value="{{EWW_CPU_USAGE.avg}}"/>
         </box>
       </box>
     </def>
@@ -61,7 +57,7 @@
     </def>
 
     <def name="control">
-      <box class="widget" spacing="20" orientation="v" space-evenly="false">
+      <box orientation="v" spacing="15" valign="fill" class="widget">
         <volume_slider/>
         <view_padding/>
         <main_factor/>

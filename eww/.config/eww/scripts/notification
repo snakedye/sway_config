@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
 
+source ~/.config/eww/scripts/power
 LITERAL='<box orientation="v" spacing="10" space-evenly="false" style="margin: 10px 5px 5px 5px;padding: 0px">'
 LINE=0
 
@@ -10,7 +11,6 @@ show() {
   if [[ ! $OPENED =~ \* ]]; then
     ~/.local/bin/eww open notification
   fi
-  hide &
 }
 
 hide() {
@@ -36,6 +36,10 @@ build() {
   else
     SHOW_ICON=false
   fi
+  if [ $SUMMARY == "power" ]; then
+    LITERAL=$WIDGET
+    show
+  else
   LITERAL=${LITERAL/%'</box>'}
   LITERAL+="  <box orientation=\"v\" space-evenly=\"false\">
     <button>
@@ -54,6 +58,9 @@ build() {
     </button>
   </box>
 </box>"
+  show
+  hide &
+  fi
 }
 
 tiramisu -s | while read -r value
@@ -83,7 +90,6 @@ do
       8 )
         LINE=-1
         build
-        show
         ;;
     esac
   fi

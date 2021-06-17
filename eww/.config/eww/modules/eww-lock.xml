@@ -1,20 +1,18 @@
 <eww>
   <definitions>
     <def name="lock">
-      <box orientation="v" halign="fill"
-        class="widget"
-        spacing="30">
         <power/>
-      </box>
     </def>
     <!-- Power widget -->
     <def name="power">
-      <box orientation="h" width="300" halign="center" valign="center"
-        style="font-size: 30px" spacing="20">
-        <button class="power" onclick="~/.local/bin/eww close hub && swaylock -f"></button>
-        <button class="power" onclick="~/.local/bin/eww close hub && systemctl suspend">鈴</button>
-        <button class="power" onclick="loginctl terminate-user $USER"></button>
-        <button class="power" onclick="systemctl poweroff">⏻</button>
+      <box space-evenly="false" orientation="v" halign="fill" class="power" spacing="0">
+        <!-- <label style="border-bottom: 2px solid #3a3a3a; margin: 0px 60px 0px 60px" height="" text=""></label> -->
+        <box orientation="h" halign="center" valign="center" width="50" height="70" style="font-size: 40px;margin: 5px" spacing="10">
+          <button onclick="~/.local/bin/eww close hub  &amp;&amp; swaylock -f"></button>
+          <button onclick="loginctl terminate-user $USER"></button>
+          <button onclick="systemctl poweroff">⏻</button>
+          <button onclick="~/.local/bin/eww close hub &amp;&amp; systemctl suspend">鈴</button>
+        </box>
       </box>
     </def>
   </definitions>

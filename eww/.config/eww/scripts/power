@@ -1,0 +1,14 @@
+#!/bin/sh
+
+read -r -d '' WIDGET << EOM
+<box orientation="v" spacing="10" space-evenly="false">
+<box space-evenly="false" style="margin: 10px 5px 5px 5px;padding: 0px"
+orientation="v" halign="fill" spacing="10">
+  <box class="power" orientation="h" halign="center" valign="center" width="50" height="70" style="font-size: 40px;margin: 5px" spacing="10">
+    <button onclick="~/.local/bin/eww close hub  &amp;&amp; swaylock -f"></button>
+    <button onclick="loginctl terminate-user $USER"></button>
+    <button onclick="systemctl poweroff">⏻</button>
+    <button onclick="~/.local/bin/eww close hub &amp;&amp; systemctl suspend">鈴</button>
+  </box>
+</box>
+EOM

@@ -14,7 +14,7 @@
 
 //Global Styles
 window {
-	color: #b8b8ac;
+	color: #b1af9e;
   font-family: CascadiaCode;
 }
 trough {
@@ -51,7 +51,7 @@ calendar:selected {
 .widget {
 	background-color: #302f2f;
   border-radius: 10px;
-  padding: 25px 0px 25px 0px;
+  padding: 25px;
   margin: 5px;
 }
 .profile {
@@ -68,25 +68,19 @@ calendar:selected {
   border-radius: 10px;
   border: 1px solid #3a3a3a;
 	background-color: #302f2f;
-  box-shadow: 0px 0px 5px 0.2px  rgba(0,0,0,0.3);
+  // box-shadow: 0px 0px 5px 0.2px  rgba(0,0,0,0.3);
 }
 .muted, .muted progress trough highlight {
   color: #6f6f6f;
   background-color: transparent;
 }
-.Close {
-  animation-name: fadeOut;
-  animation-duration: 0.5s;
-}
 .hub {
-	background-color: #383636;
+	background-color: #302f2f;
   animation-name: fadeIn;
   animation-duration: 0.1s;
   padding: 10px;
-  border: 1px solid #3a3a3a;
-  border-radius: 10px;
-  margin: 15px;
-  box-shadow: 0px 0px 5px 0.2px  rgba(0,0,0,0.3);
+  border: 2px solid #3a3a3a;
+  border-radius: 10px 10px 0px 0px;
 }
 .notification {
   font-family: CascadiaMono;
@@ -198,12 +192,11 @@ calendar:selected {
 /*
  * Config for power buttons
 */
-.power {
-  border-radius: 10px;
+.power button {
+  padding: 5px 20px 5px 20px;
   color:#6f6f6f;
-  padding: 10px;
 }
-.power:hover {
+.power button:hover {
 	color: #8d987e;
 }
 /*
@@ -215,6 +208,12 @@ calendar:selected {
   padding: 0px 15px 0px 15px;
   margin-bottom: 5px;
   box-shadow: 0px 0px 3px 0.1px  #232323;
+}
+.pacman {
+	color: #ca9d85;
+}
+.none {
+  color: #474747;
 }
 .tray {
   all: unset;

@@ -4,12 +4,14 @@
 ~/.local/bin/eww daemon
 riverctl spawn 'kile'
 riverctl spawn 'mpDris2'
-riverctl spawn '~/.local/bin/notification'
 riverctl spawn 'nm-applet --indicator'
-riverctl spawn '/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1'
+riverctl spawn '~/.local/bin/notification'
 riverctl spawn 'mpd ~/.config/mpd/mpd.conf'
 riverctl spawn '/usr/lib/xdg-desktop-portal-wlr'
-riverctl spawn 'swayidle -w timeout 1080 "swaylock -f" after-resume "swaylock -f"'
+riverctl spawn '~/.local/bin/midle 1080 "swaylock -f"'
+riverctl spawn '/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1'
+
+# Launching the volume socket for eww
 if [ -e /tmp/ewwpipe ]; then
   mkfifo /tmp/ewwpipe
 fi
@@ -43,10 +45,13 @@ riverctl map normal $mod X close
 riverctl map normal $mod+Shift E exit
 
 # Mod+C for wofi-emoji
-riverctl map normal $mod C spawn ~/.local/bin/wofi-emoji
+riverctl map normal $mod E spawn ~/.local/bin/wofi-emoji
 
 # Mod+P for the layout switcher
-riverctl map normal $mod P spawn ~/.local/bin/layout
+riverctl map normal $mod C spawn ~/.local/bin/layout
+
+# Mod+B for Eww hub
+riverctl map normal $mod B spawn "~/.local/bin/eww close hub || ~/.local/bin/eww open hub"
 
 # Mod+J and Mod+K to focus the next/previous view in the layout stack
 riverctl map normal $mod J focus-view next
@@ -109,26 +114,29 @@ do
   riverctl map "${mode}" $mod+Mod1 K mod-layout-value "${layout}" int view_padding +5
 
   # Custom layouts
-  riverctl map "${mode}" $mod U set-layout-value "${layout}" string focused "$CENTERED"
   riverctl map "${mode}" $mod T set-layout-value "${layout}" string focused "$DECK"
-  riverctl map "${mode}" $mod Y set-layout-value "${layout}" string focused "$STACK"
+  riverctl map "${mode}" $mod G set-layout-value "${layout}" string focused "$STACK"
   riverctl map "${mode}" $mod D set-layout-value "${layout}" string focused "$DWINDLE"
-  riverctl map "${mode}" $mod+Shift Y set-layout-value "${layout}" string focused "$RSTACK"
+  riverctl map "${mode}" $mod Q set-layout-value "${layout}" string focused "$CENTERED"
+  riverctl map "${mode}" $mod+Shift G set-layout-value "${layout}" string focused "$RSTACK"
   riverctl map "${mode}" $mod+Shift T set-layout-value "${layout}" string focused "$RDECK"
 done
 
 # Declaring scratchpads and their keybinds
-for key in M N B
+for key in 1 2 3 4 Y U I
 do
   case "$key" in
-    M)
-      i=20
+    1|2|3|4)
+      i=$key
       ;;
-    N)
-      i=21
+    Y)
+      i=5
       ;;
-    B)
-      i=22
+    U)
+      i=6
+      ;;
+    I)
+      i=7
       ;;
   esac
   tagmask=$((1 << ($i - 1)))
@@ -145,6 +153,12 @@ do
   # Mod+Shift+Ctrl+{M, N, B} to toggle tag [20-22] of focused view
   riverctl map normal $mod+Mod1 $key toggle-view-tags $tagmask
 done
+
+# Mod+0 to focus all tags
+# Mod+Shift+0 to tag focused view with all tags
+all_tags_mask=$(((1 << 8) - 1))
+riverctl map normal $mod O set-focused-tags $all_tags_mask
+riverctl map normal $mod+Shift O set-view-tags $all_tags_mask
 
 # Mod+Alt+Control+{H,J,K,L} to snap views to screen edges
 riverctl map normal $mod+Mod1+Control H snap left
@@ -163,35 +177,6 @@ riverctl map-pointer normal $mod BTN_LEFT move-view
 
 # Mod + Right Mouse Button to resize views
 riverctl map-pointer normal $mod BTN_RIGHT resize-view
-
-# Mod + Scroll up to switch to previous output
-riverctl map-pointer normal $mod KEY_SCROLLUP focus-output previous
-
-# Mod + Scroll up to switch to next output
-riverctl map-pointer normal $mod KEY_SCROLLDOWN focus-output next
-
-# Declaring tags and their keybinds
-for i in $(seq 1 9); do
-    tagmask=$((1 << ($i - 1)))
-
-    # Mod+[1-9] to focus tag [0-8]
-    riverctl map normal $mod $i set-focused-tags $tagmask
-
-    # Mod+Shift+[1-9] to tag focused view with tag [0-8]
-    riverctl map normal $mod+Shift $i set-view-tags $tagmask
-
-    # Mod+Ctrl+[1-9] to toggle focus of tag [0-8]
-    riverctl map normal $mod+Control $i toggle-focused-tags $tagmask
-
-    # Mod+Shift+Ctrl+[1-9] to toggle tag [0-8] of focused view
-    riverctl map normal $mod+Mod1 $i toggle-view-tags $tagmask
-done
-
-# Mod+0 to focus all tags
-# Mod+Shift+0 to tag focused view with all tags
-all_tags_mask=$(((1 << 32) - 1))
-riverctl map normal $mod 0 set-focused-tags $all_tags_mask
-riverctl map normal $mod+Shift 0 set-view-tags $all_tags_mask
 
 # Mod+Space to toggle float
 riverctl map normal Mod1 Space toggle-float
@@ -258,13 +243,12 @@ do
   case $output in
     DP-2)
       riverctl set-layout-value kile string all "$STACK"
-      riverctl set-layout-value kile string 32 "$GROUP"
       ;;
     HDMI-A-1)
       riverctl set-layout-value kile string all "$RDECK"
-      riverctl set-layout-value kile string 32 "$GROUP"
       ;;
   esac
+  riverctl set-layout-value kile string 8 "$GROUP"
   riverctl attach-mode bottom
   riverctl focus-output next
 done
